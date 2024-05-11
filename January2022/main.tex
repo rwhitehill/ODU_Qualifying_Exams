@@ -206,7 +206,45 @@ Thus,
 \end{align}
 
 
-(b) 
+(b) We can do as requested by superimposing the solution from above with that of two grounded conductors with the specified volume charge density between the spheres.
+Since the additional problem is spherically symmetric, we can use Gauss' law:
+\begin{align}
+    \oint \vb*{E} \cdot \dd{\vb*{A}} = \frac{Q}{\epsilon_0} \Rightarrow E(r) = \frac{Q_{a} + Q(r)}{4 \pi \epsilon_0} \frac{1}{r^2}
+,\end{align}
+where $Q(r)$ is the charge enclosed by our Gaussian surface, which we choose to be a sphere of radius $r$, and $Q_{a}$ is the charge on the inner sphere.
+We can compute the charge
+\begin{align}
+    Q(r) = 4 \pi \lambda \int_{a}^{r} r \dd{r} = 2 \pi \lambda ( r^2 - a^2 )
+.\end{align}
+The electric field is then
+\begin{align}
+    \vb*{E} = \frac{Q_a + 2 \pi \lambda (r^2 - a^2)}{4 \pi \epsilon_0 r^2}
+,\end{align}
+and the potential is just
+\begin{align}
+    \Phi(r) = \frac{1}{4 \pi \epsilon_0} \int_{r}^{b} \frac{Q_{a} + 2 \pi \lambda (r^2 - a^2)}{r^2} \dd{r} = \frac{1}{4 \pi \epsilon_0} \Bigg[ (Q_{a} - 2 \pi \lambda a^2) \Big( \frac{1}{r} - \frac{1}{b} \Big) + 2 \pi \lambda ( b - r ) \Bigg]
+.\end{align}
+The form of the potential above gurantees that the outer sphere is grounded.
+We now solve for $Q_{a}$ such that the inner sphere is also grounded as needed:
+\begin{align}
+    (Q_{a} - 2 \pi \lambda a^2) \Big( \frac{1}{a} - \frac{1}{b} \Big) + 2 \pi \lambda ( b - a ) = 0 \Rightarrow Q_{a} = -2 \pi \lambda a ( b - a )
+.\end{align}
+Plugging this in, we find
+\begin{align}
+    \Phi(r) = 2 \pi \lambda \Bigg[ (b - r) - a \Big( \frac{b}{r} - 1 \Big) \Bigg]
+\end{align}
+as the potential between the spheres, and using the same line integration, we see that the potential is zero for this setup when $r < a$ and $r > b$.
+
+Now that we have our results, the composite potential with the charge density between the spheres and the potential $2 V_0$ and $V_0 \cos{\theta}$ on the inner and outer spheres is
+\begin{align}
+    \eqbox{ \Phi(r,\theta) = \begin{cases}
+        2 V_0 & r < a \\
+        \frac{2 V_0}{b/a - 1} \Big( \frac{b}{r} - 1 \Big) + V_0 \Big( \frac{1}{1 - (a/b)^3} \frac{r}{b} - \frac{1}{(b/a)^3 - 1} \frac{b^2}{r^2} \Big) \cos{\theta} + 2 \pi \lambda \Big[ (b - r) - a \Big( \frac{b}{r} - 1 \Big) \Big] & a < r < b \\
+        \frac{V_0 b^2}{r^2} \cos{\theta} & r > b
+    \end{cases}
+}
+.\end{align}
+
 
 }
 
