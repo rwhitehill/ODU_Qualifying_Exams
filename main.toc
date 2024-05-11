@@ -1,0 +1,45 @@
+\contentsline {section}{A note on the solutions}{3}{section*.2}%
+\contentsline {section}{\numberline {1}May 2023}{4}{section.1}%
+\contentsline {subsection}{Classical Mechanics}{4}{section*.3}%
+\contentsline {subsection}{Electricity \& Magnetism}{10}{section*.4}%
+\contentsline {subsection}{Quantum Mechanics}{19}{section*.5}%
+\contentsline {section}{\numberline {2}January 2023}{27}{section.2}%
+\contentsline {subsection}{Classical Mechanics}{27}{section*.6}%
+\contentsline {subsection}{Electricity \& Magnetism}{29}{section*.7}%
+\contentsline {subsection}{Quantum Mechanics}{31}{section*.8}%
+\contentsline {section}{\numberline {3}May 2022}{35}{section.3}%
+\contentsline {subsection}{Classical Mechanics}{35}{section*.9}%
+\contentsline {subsection}{Electricity \& Magnetism}{37}{section*.10}%
+\contentsline {subsection}{Quantum Mechanics}{40}{section*.11}%
+\contentsline {section}{\numberline {4}January 2022}{43}{section.4}%
+\contentsline {subsection}{Classical Mechanics}{43}{section*.12}%
+\contentsline {subsection}{Electricity \& Magnetism}{45}{section*.13}%
+\contentsline {subsection}{Quantum Mechanics}{49}{section*.14}%
+\contentsline {section}{\numberline {5}August 2021}{52}{section.5}%
+\contentsline {subsection}{Classical Mechanics}{52}{section*.15}%
+\contentsline {subsection}{Electricity \& Magnetism}{54}{section*.16}%
+\contentsline {subsection}{Quantum Mechanics}{57}{section*.17}%
+\contentsline {section}{\numberline {6}January 2021}{59}{section.6}%
+\contentsline {subsection}{Classical Mechanics}{59}{section*.18}%
+\contentsline {subsection}{Electricity \& Magnetism}{64}{section*.19}%
+\contentsline {subsection}{Quantum Mechanics}{69}{section*.20}%
+\contentsline {section}{\numberline {7}August 2020}{78}{section.7}%
+\contentsline {subsection}{Classical Mechanics}{78}{section*.21}%
+\contentsline {subsection}{Electricity \& Magnetism}{79}{section*.22}%
+\contentsline {subsection}{Quantum Mechanics}{81}{section*.23}%
+\contentsline {section}{\numberline {8}January 2020}{85}{section.8}%
+\contentsline {subsection}{Classical Mechanics}{85}{section*.24}%
+\contentsline {subsection}{Electricity \& Magnetism}{87}{section*.25}%
+\contentsline {subsection}{Quantum Mechanics}{89}{section*.26}%
+\contentsline {section}{\numberline {9}August 2019}{91}{section.9}%
+\contentsline {subsection}{Classical Mechanics}{91}{section*.27}%
+\contentsline {subsection}{Electricity \& Magnetism}{93}{section*.28}%
+\contentsline {subsection}{Quantum Mechanics}{95}{section*.29}%
+\contentsline {section}{\numberline {10}January 2019}{98}{section.10}%
+\contentsline {subsection}{Classical Mechanics}{98}{section*.30}%
+\contentsline {subsection}{Electricity \& Magnetism}{100}{section*.31}%
+\contentsline {subsection}{Quantum Mechanics}{103}{section*.32}%
+\contentsline {section}{\numberline {11}August 2018}{106}{section.11}%
+\contentsline {subsection}{Classical Mechanics}{106}{section*.33}%
+\contentsline {subsection}{Electricity \& Magnetism}{108}{section*.34}%
+\contentsline {subsection}{Quantum Mechanics}{110}{section*.35}%

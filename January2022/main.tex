@@ -1,0 +1,395 @@
+%--------------------------%
+\section{January 2022} %---%
+%--------------------------%
+% \addcontentsline{toc}{section}{January 2022}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Classical Mechanics} %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{Classical Mechanics}
+
+\prob{1.1}{
+
+With the Lagrangian $\mathcal{L} = T - V$, the Euler-Lagrange equations of motion are given by
+\begin{align*}
+    \dv{t} \Big( \pdv{\mathcal{L}}{\dot{q}_i} \Big) - \pdv{\mathcal{L}}{q_i} = 0
+.\end{align*}
+We can modify these equations by introducing a function $\mathcal{F}(\dot{q}_i)$ that depends on the velocities only, writing expanded equations as follows:
+\begin{align*}
+    \dv{t} \Big( \pdv{\mathcal{L}}{\dot{q}_i} \Big) - \pdv{\mathcal{L}}{q_i} + \pdv{\mathcal{F}}{\dot{q}_i} = 0
+\end{align*}
+Let the Lagrangian for a system with one degree of freedom, $x$, be given by
+\begin{align*}
+    \mathcal{L} = \frac{m}{2} \dot{x}^2 - \frac{k}{2} x^2
+\end{align*}
+and
+\begin{align*}
+    \mathcal{F} = \eta \dot{x}^2
+,\end{align*}
+where $\eta > 0$.
+
+\begin{parts}
+    \item Write down the expanded equation of motion defined above.
+
+    \item What system is described by this equation of motion?
+
+    \item Find an ansatz for the general solution (you may write $x(t)$ as a potentially complex-valued function which simplifies the math).
+
+    \item Show that your ansatz solves the expanded equation of motion.
+
+    \item Discuss the three difference cases for the solution, depending on $k$, $m$, and $\eta$.
+\end{parts}
+
+}
+
+\sol{}
+
+
+\prob{1.2}{
+
+A mathematical pendulum of length $l$ and mass $m$ is in a gravitational field with normal acceleration $g$ along the $-y$ axis.
+The suspension point $O$ of the pendulum is driven by a motor along $x$ in such a way that the suspension point oscillates as shown in the Figure.
+
+\begin{parts}
+    \item Write down the Lagrangian of the system in terms of time-dependent coordinate of the suspension point $x(t)$ and the angle $\varphi(t)$.
+
+    \item Write down a dynamic equation for $\varphi(t)$ and solve it for small-amplitude oscillations of $\varphi(t) \ll 1$ caused by the oscillating suspension point with $x(t) = x_0 \sin{\omega t}$ and $x_0 \ll l$.
+\end{parts}
+
+\begin{center}
+\includegraphics{January2022/1-2.pdf}
+\end{center}
+
+}
+
+\sol{}
+
+
+\prob{1.3}{
+
+The Lagrangian $L(\vb*{r}_i,\dot{\vb*{r}}_i)$ is invariant under rotations about an axis whose direction is specified by the unit vector $\vu*{n}$.
+Here $\vb*{r}_i$ and $\dot{\vb*{r}}_i$ are the positions and velocities of particles $i = 1,\cdots,N$.
+Knowing that under an infinitesimal rotation by an angle $\eta$ about $\vu*{n}$ a generic vector $\vb*{v}$ changes as
+\begin{align*}
+    \vb*{v} \rightarrow \vb*{v}' = \vb*{v} + \eta \, \vu*{n} \times \vb*{v}
+,\end{align*}
+show that the projection of the total angular momentum along $\vu*{n}$ is conserved.
+
+}
+
+\sol{}
+
+
+\prob{1.4}{
+
+In a particle accelerator the momentum compaction factor $\alpha$ is a dimensionless number equal to the ratio of the relative change of the path length and the relative change of the momentum
+\begin{align*}
+    \alpha = \frac{\delta L}{L} \Big/ \frac{\delta p}{p} = \frac{p}{L} \dv{L}{p}
+\end{align*}
+Consider a satellite in a circular orbit.
+What is the momentum compaction factor?
+
+You may assume that the change of momentum is small and slow enough that the orbit is always circular.
+
+}
+
+\sol{}
+
+
+\prob{2.1}{
+
+In a simple Atwood machine, two masses are suspended, under constant gravity, from the ends of a flexible, massless, inextensible rope that passes over an inertialessly rotating pulley.
+Here, the two masses $m_1$ and $m_2$, the rope is of length $l$, and the constant gravitational acceleration $g$ is downward.
+
+\begin{center}
+\includegraphics{January2022/2-1.pdf}
+\end{center}
+
+Suppose that the second mass is replaced by a live monkey of equal mass that climbs up the rope at speed $v(t)$ relative to the rope.
+Treating the monkey's motion as a (time-dependent) constraint in the Lagrangian formalism, answer the following questions:
+\begin{parts}
+    \item Find the acceleration of the mass, $m_1$, if the monkey climbs up the rope with constant speed $v$.
+
+    \item Find the acceleration of the mass $m_1$, if the monkey climbs up the rope with constant acceleration $\dot{v}(t) = a$.
+\end{parts}
+
+}
+
+\sol{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Electricity \& Magnetism} %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{Electricity \& Magnetism}
+
+\prob{2.2}{
+
+Consider the region between two concentric spherical surfaces of radii $a$ and $b$.
+On the inner boundary ($r = a$) of this region, the potential is constant,
+\begin{align*}
+    \phi(a,\theta) = 2 V_0
+.\end{align*}
+On the outer boundary ($r = b$) of this region, the potential is given by
+\begin{align*}
+    \phi(b,\theta) = V_0 \cos{\theta}
+.\end{align*}
+
+\begin{parts}
+    \item Find the potential in the region $a \leq r \leq b$.
+
+    \item Now suppose that the region between two concentric spherical surfaces is filled with the inhomogeneous charge density $\rho(\vb*{r}) = \lambda / r$, where $\lambda$ is a constant and $r$ is the distance to the center of the spheres.
+    The potentials on the spherical surfaces are kept the same as in part (a).
+
+    Find the solution of the Poisson equation in the region $a \leq r \leq b$.
+
+    (Note: The inner and outer surfaces have surface charges that can create non-spherically symmetric potentials.)
+\end{parts}
+
+}
+
+\sol{
+
+(a) The relevant equation for this problem is Laplace's equation.
+Since our geometry is spherical with azimuthal symmetry, we can immediately write
+\begin{align}
+    \Phi(\vec{r}) = \sum_{l} P_{l}(\cos{\theta}) \begin{cases}
+        A_l r^l & r < a \\
+        B_l r^l + C_l/r^{l+1} & a < r < b \\
+        D_l / r^{l+1} & r > b
+    \end{cases}
+.\end{align}
+We have two boundary conditions are each interface:
+\begin{align}
+    &(i) ~ \Phi(a) = 2 V_0 \\
+    &(ii) ~ \Phi(a^{-}) = \Phi(a^{+}) \\
+    &(iii) ~ \Phi(b) = V_0 \cos{\theta} \\
+    &(iv) ~ \Phi(b^{-}) = \Phi(b^{+})
+.\end{align}
+The first gives us that
+\begin{gather}
+    \sum_l A_l a^l P_l(\cos{\theta}) = 2 V_0 \nonumber \\
+    \sum_l A_l a^{l} \underbrace{ \int_{-1}^{1} \dd{(\cos{\theta})} P_{l}(\cos{\theta}) P_m(\cos{\theta}) }_{2/(2m + 1) \delta_{lm}} = 2 V_0 \int_{-1}^{1} \dd{(\cos{\theta})} P_0(\cos{\theta}) P_{m}(\cos{\theta}) \nonumber \\
+    \frac{2}{2 m + 1} A_m a^m = 4 V_0 \delta_{m 0} \Rightarrow A_l = 2 V_0 \delta_{l 0}
+.\end{gather}
+The third condition by a similar argument and using that $P_1(\cos{\theta}) = \cos{\theta}$ yields $D_l = V_0 b^2 \delta_{l 1}$.
+Next, we apply our continuity conditions:
+\begin{align}
+    A_l a^{2 l + 1} = B_l a^{2 l + 1} + C_l \\
+    B_l b^{2 l + 1} + C_l = D_l
+,\end{align}
+which give
+\begin{align}
+    B_l &= \frac{D_l - A_l a^{2l + 1}}{b^{2l+1} - a^{2 l + 1}} = V_0 \Bigg[ \frac{b^2}{b^{3} - a^{3}} \delta_{l1} - \frac{2 a}{b - a} \delta_{l 0} \Bigg] \\
+    C_l &= - \frac{a^{2l + 1}}{b^{2 l + 1} - a^{2 l + 1}} D_l + \frac{a^{2l+1}b^{2l+1}}{b^{2l+1} - a^{2l+1}} A_l = V_0 \Bigg[ \frac{2 a b}{b - a} \delta_{l 0} - \frac{a^3 b^2}{b^3 - a^3} \delta_{l1} \Bigg]
+.\end{align}
+Thus,
+\begin{align}
+\eqbox{
+    \Phi(r,\theta) = V_0 \begin{cases}
+        2 & r < a \\
+        \frac{2}{b/a - 1} \Big( \frac{b}{r} - 1 \Big) + \Big( \frac{1}{1 - (a/b)^3} \frac{r}{b} - \frac{1}{(b/a)^3 - 1} \frac{b^2}{r^2} \Big) \cos{\theta} & a < r < b \\
+        \frac{b^2}{r^2} \cos{\theta} & r > b
+    \end{cases}
+}
+\end{align}
+
+
+(b) 
+
+}
+
+
+\prob{2.3}{
+
+Consider a straight wave-guide of arbitrary but constant cross-section.
+The walls inside the wave-guide are ideal conductors (infinite conductivity) and the interior of the wave-guide is a vacuum.
+The lowest cutoff frequency is $\omega_0$ and the next higher one is $\omega_1$.
+The wave-guide is excited at the frequency $\omega$ such that $\omega_0 < \omega < \omega_1$.
+
+For the waves that are propagating down the wave-guide, what are the phase velocity and the group velocity?
+
+}
+
+\sol{}
+
+
+\prob{2.4}{
+
+A charge is uniformly distributed on the surface of a solid sphere, which rotates with a fixed angular velocity about an axis through its center.
+The sphere is in a uniform and constant magnetic field with a nonzero angle relative to the sphere's axis of rotation.
+Without doing any detailed calculations, describe the motion of the sphere, justifying your reasoning.
+What happens to the sphere's axis of rotation?
+
+}
+
+\sol{}
+
+
+\prob{3.1}{
+
+A conducting surface held at zero potential consists of a plane with a hemispherical bump of radius $R$ (see the figure below).
+A charge $q$ sits a distance $r > R$ above the center of the hemispherical bump.
+
+\begin{center}
+\includegraphics{January2022/3-1.pdf}
+\end{center}
+
+Calculate the force on the charge.
+
+\textbf{Hint}: Use image charges.
+Note that you may need more than one image charge; in fact, as many as three.
+You should verify that your image solution satisfies the correct boundary conditions.
+
+}
+
+\sol{}
+
+\prob{3.2}{
+
+A particle with charge $q$ and mass $m$ moves in a parabolic potential $U(x,y,z) = k(x^2 + y^2 + z^2)/2$, and a constant magnetic field $B$ is applied along the $z$-axis.
+
+\begin{parts}
+    \item Write down the equations of motion.
+
+    \item How does the frequency of this 3D charged oscillator change owing to the presence of this constant magnetic field?
+
+    \item Describe the trajectories of the oscillator corresponding to its different eigenfrequencies in the magnetic field.
+\end{parts}
+
+}
+
+\sol{}
+
+
+\prob{3.3}{
+
+Until 2019, the definition of the Ampere was as follows:
+\textit{The ampere is that constant
+current which, if maintained in two straight parallel conductors of infinite length,
+of negligible circular cross-section, and placed 1 meter apart in vacuum, would
+produce between these conductors a force equal to $2 \times 10^{-7}$ newton per meter of
+length.}
+
+\begin{center}
+\includegraphics{January2022/3-3.pdf}
+\end{center}
+
+Obviously, this was a very impractical definition (``infinitely long, zero cross section wires'').
+However, one \textit{can} approximate the implied measurement in the following way:
+Consider a quadratic loop of wire, with a side length of $1~{\rm m}$ distance (and, yes, the wires are nearly infinitely thin yet totally rigid).
+
+If we run a current $I$ of $1~{\rm Ampere}$ through both the square and the infinite wire, what will be the force that each conductor exerts on the other?
+You may use symmetry arguments as much as possible to simplify the calculation, keeping in mind that we are only interested in the \textbf{net} force.
+
+}
+
+\sol{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Quantum Mechanics} %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{subsection}{Quantum Mechanics}
+
+\prob{3.4}{
+
+Consider a spinless particle with mass $m$ in the three-dimensional potential $V(r) = Cr^2$ with $C > 0$.
+
+\begin{parts}
+    \item What are the energy eigenvalues?
+    What are the degeneracies of the three lowest energy eigenvalues?
+
+    \item Suppose that five identical noninteracting particles with mass $m$ move in this potential.
+    What is the ground state energy of this system if the particles have (i) spin-1/2, (ii) spin-1?
+\end{parts}
+
+}
+
+\sol{}
+
+
+\prob{4.1}{
+
+The Pauli spin matrices in quantum mechanics are given by
+\begin{align*}
+    \sigma_1 = \begin{pmatrix}
+        0 & 1 \\ 
+        1 & 0
+    \end{pmatrix}
+    , \quad
+    \sigma_2 = \begin{pmatrix}
+        0 & -i \\ 
+        i & 0
+    \end{pmatrix}
+    , \quad
+    \sigma_3 = \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}
+.\end{align*}
+By definition,
+\begin{align*}
+    e^{\alpha \sigma_1} = \sum_{n=0}^{\infty} \frac{\alpha^n}{n!} \sigma_1^n
+.\end{align*}
+
+\begin{parts}
+    \item Calculate $e^{\alpha \sigma_1}$ as an explicit 2 by 2 matrix.
+
+    \item Find eigenvalues and normalized eigenvectors of $e^{\alpha \sigma_1}$.
+\end{parts}
+
+}
+
+\sol{}
+
+
+\prob{4.2}{
+
+At time $t = 0$ a particle in the potential $V(x) = m \omega^2 x^2 / 2$ is described by the wavefunction
+\begin{align*}
+    \psi(x,0) = A \sum_n (1/\sqrt{2})^n \psi_n(x)
+,\end{align*}
+where $\psi_n(x)$ are the orthonormal eigenfunctions of the energy with eigenvalues $E_n = (n+1/2)\hbar \omega$.
+
+\begin{parts}
+    \item Find the normalization constant $A$.
+
+    \item Write the expression for $\psi(x,t)$ for $t > 0$.
+
+    \item Show that $| \psi(x,t) |^2$ is a periodic function of time and indicate the period $T$.
+
+    \item Find the expectation value of the energy.
+\end{parts}
+
+}
+
+\sol{}
+
+
+\prob{4.3}{
+
+A particle of mass $m$ is moving along the $x$-axis (in one dimension), where its potential energy is $V(x) = 0$ for all $x \leq 0$ and $V(x) = V_0$ else.
+The particle is in an energy eigenstate with eigenvalue $0 < E < V_0$.
+
+Write down the time-independent Schr\"{o}dinger equation and find a solution (determine all constants to within one overall constant).
+What is the probability density for the particle to be found at the classically forbidden point $x = x_0 > 0$, expressed as a fraction of the probability density for the particle to be found at $x = 0$?
+
+}
+
+\sol{}
+
+
+\prob{4.4}{
+
+A particle with spin-1/2 is described by a state vector:
+\begin{align*}
+    \ket{\chi} = \begin{pmatrix}
+        \alpha \\ \beta
+    \end{pmatrix}
+.\end{align*}
+Here $\alpha = e^{i \varphi_1} \cos{\theta}$ and $\beta = e^{i \varphi_2} \sin{\theta}$ are complex amplitudes, and $\theta$, $\varphi_1$, and $\varphi_2$ are real parameters.
+Calculate the probabilities to measure the spin +1/2 separately along each of the $x$, $y$, and $z$ axes.
+
+}
+
+\sol{}
