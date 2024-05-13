@@ -2084,7 +2084,11 @@ You should verify that your image solution satisfies the correct boundary condit
 
 }
 
-\sol{}
+\sol{
+
+
+
+}
 
 \prob{3.2}{
 
@@ -2100,7 +2104,46 @@ A particle with charge $q$ and mass $m$ moves in a parabolic potential $U(x,y,z)
 
 }
 
-\sol{}
+\sol{
+
+The force acting on the charge is given as
+\begin{align}
+    m \ddot{\vb*{r}} = q \dot{\vb*{r}} \cross B \vu*{z} - k (x \vu*{x} + y \vu*{y} + z \vu*{z})
+.\end{align}
+In component form, we have
+\begin{align}
+\eqbox{
+\begin{aligned} 
+    \ddot{x} &= \frac{q B_z}{m} \dot{y} - \frac{k}{m} x \\
+    \ddot{y} &= - \frac{q B_z}{m} \dot{x} - \frac{k}{m} y \\
+    \ddot{z} &= -\frac{k}{m} z
+.\end{aligned}
+}
+\end{align}
+
+
+(b) The oscillation in the $z$ direction is unchanged as a result of the existence of the magnetic field.
+If we insert $x = A e^{i \omega t}$ and $y = B e^{i \omega t}$, then
+\begin{align}
+    \begin{pmatrix}
+        \omega^2 - \omega_0^2 & i \omega \omega_c \\
+        -i \omega \omega_c & \omega^2 - \omega_0^2
+    \end{pmatrix}
+    \begin{pmatrix}
+    A \\ B
+    \end{pmatrix}
+    = 0
+,\end{align}
+where $\omega_0 = \sqrt{k/m}$ and $\omega_c = q B_z / m$.
+This is solved by requiring the matrix to have zero determinant, yielding
+\begin{align}
+    \eqbox{ \omega_{\pm}^2 = \omega_0^2 + \frac{\omega_{c}^2}{2} \pm \omega_c \sqrt{\omega_0^2 + \frac{\omega_{c}^2}{4}} }
+.\end{align}
+The positive branch corresponds to strictly oscillatory motion.
+If $\omega_{c} \sqrt{\omega_0^2 + (\omega_{c}/2)^2} > \omega_0^2 + \omega_{c}^2 / 2$, then the negative branch corresponds to damped motion, which dies out over time and leaves only the first oscillation mode.
+If they are equal, then the 
+
+}
 
 
 \prob{3.3}{
