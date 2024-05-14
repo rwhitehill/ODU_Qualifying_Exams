@@ -998,12 +998,12 @@ Next, we can rearrange the definitions of $a$ and $a^{\dagger}$ to obtain
 .\end{align}
 Putting this into the Hamiltonian, we find
 \begin{align}
-    \eqbox{ H = \frac{1}{4 m \alpha^2} \Big(a^{\dagger} a + a a^{\dagger} \Big) = \hbar \frac{q B_z}{2 m^3 c} \Big( a^{\dagger} a + \frac{1}{2} \Big) }
+    \eqbox{ H = \frac{m}{4 \alpha^2} \Big(a^{\dagger} a + a a^{\dagger} \Big) = \hbar \frac{q B_z}{2 m^3 c} \Big( a^{\dagger} a + \frac{1}{2} \Big) }
 .\end{align}
 
 (c) Since $a^{\dagger} a$ is a number operator, we know immediately how to write the spectrum of the Hamiltonian:
 \begin{align}
-    \eqbox{ H \ket{n} = \hbar \frac{q B_z}{2 m^3 c} (n + 1/2) }
+    \eqbox{ H \ket{n} = \hbar \frac{q B_z}{2 m c} (n + 1/2) }
 ,\end{align}
 where $\ket{n}$ satisfies the eigenequation $a^{\dagger}a \ket{n} = n \ket{n}$.
 
@@ -1039,7 +1039,42 @@ Solve the equations for $T$ and $L$ in the limit of $T \gg M/\gamma$.
 
 }
 
-\sol{}
+\sol{
+
+(a) The force on the bathyscaphe is given by
+\begin{align}
+    \vb*{F} = -M g \vu*{y} - \gamma \vb*{v} + \rho g \Big( \frac{4}{3} \pi R^3 \Big) \vu*{y}
+,\end{align}
+which in components reads
+\begin{align}
+    M \ddot{x} &= - \gamma \dot{x} \\
+    M \ddot{y} &= - M g - \gamma \dot{y} + \frac{4}{3} \pi R^3 \rho g
+.\end{align}
+We can solve the equation for $x$ simply:
+\begin{align}
+    \dot{x} + \frac{\gamma}{M} x = v_0 \Rightarrow \dv{t} \Big( e^{(\gamma/M)t} x \Big) = v_0 e^{(\gamma/M)t} \Rightarrow x(t) = \frac{M v_0}{\gamma} ( 1 - e^{-(\gamma / M)t} )
+.\end{align}
+We can also solve the equation for $y$ in a similar way:
+\begin{gather}
+    \dot{y} + \frac{\gamma}{M} y = -\frac{\gamma h}{M} - \Big( 1 - \frac{4 \pi R^3 \rho}{3 M} \Big) g t \nonumber \\
+    \dv{t} \Big( e^{(\gamma / M) t} y \Big) = -\frac{\gamma h}{M} e^{(\gamma / M)t} - \Big( 1 - \frac{4 \pi R^3 \rho}{3 M} \Big) g t e^{(\gamma / M)t} \nonumber \\
+    y(t) = - h - h ( 1 - e^{-(\gamma / M) t} ) - \Big( 1 - \frac{4 \pi R^3 \rho}{3 M} \Big) g e^{-(\gamma / M)t} \int_{0}^{t} \dd{t'} t' e^{(\gamma / M)t'} \nonumber \\
+    y(t) = - h - h ( 1 - e^{-(\gamma / M) t} ) - \Big( \frac{M}{\gamma} \Big)^2 \Big( 1 - \frac{4 \pi R^3 \rho}{3 M} \Big) g e^{-(\gamma / M)t} \int_{0}^{\gamma t / M} \dd{x} x e^{x} \nonumber \\
+    y(t) = - h - h ( 1 - e^{-(\gamma / M) t} ) - \Big( \frac{M}{\gamma} \Big)^2 \Big( 1 - \frac{4 \pi R^3 \rho}{3 M} \Big) g \Bigg[ \frac{\gamma}{M} t + ( 1 - e^{-(\gamma / M)t} ) \Bigg]
+.\end{gather}
+Assuming that the time to reach the top $T \gg \gamma / M$, we have
+\begin{gather}
+    0 = - h - h \frac{\gamma T}{M} + \Big( \frac{M}{\gamma} \Big)^2 \Big( \frac{4 \pi R^3 \rho}{3 M} - 1 \Big) \frac{2 \gamma T}{M} g \nonumber \\
+    \eqbox{ T = h \Bigg[ \frac{2 M g}{\gamma} \Bigg( \frac{4 \pi R^3 \rho}{3 M} - 1 \Bigg) - \frac{\gamma h}{M} \Bigg]^{-1} }
+.\end{gather}
+
+(b) Using the result above, the lateral distance the bathyscaphe travels before emerging is
+\begin{align}
+    \eqbox{ L = v_0 T = h v_0 \Bigg[ \frac{2 M g}{\gamma} \Bigg( \frac{4 \pi R^3 \rho}{3 M} - 1 \Bigg) - \frac{\gamma h}{M} \Bigg]^{-1} }
+.\end{align}
+
+
+}
 
 
 \prob{1.2}{
@@ -1054,7 +1089,31 @@ Take $\theta$ to be the generalized coordinate and use $I = \frac{2}{3} m \rho^2
 
 }
 
-\sol{}
+\sol{
+
+Let us use cylindrical coordinates to write $x = (R - \rho) \sin{\theta}$ and $y = (R - \rho) \cos{\theta}$, where we have oriented $y$ to point down.
+The velocity 
+\begin{align}
+    \vb*{v} = (R - \rho) \dot{\theta} ( \cos{\theta} \vu*{x} - \cos{\theta} \vu*{y} ) + \dot{z} \vu*{z}
+.\end{align}
+The kinetic energy is then
+\begin{align}
+    T = \frac{m v^2}{2} + \frac{I \omega^2}{2} = \frac{m v^2}{2} + \frac{1}{2} \frac{2}{5} m \rho^2 \frac{v^2}{\rho^2} = \frac{7 m v^2}{10} = \frac{7 m}{10} \Big[ (R - \rho)^2 \dot{\theta}^2 + \dot{z}^2 \Big]
+,\end{align}
+so our Lagrangian reads
+\begin{align}
+    L = \frac{7 m}{10} \Big[ (R - \rho)^2 \dot{\theta}^2 + \dot{z}^2 \Big] + m g (R - \rho) \cos{\theta}
+.\end{align}
+Notice that $z$ is a cyclic coordinate, so its motion is related to the constant of motion
+\begin{align}
+    p_{z} = \pdv{L}{\dot{z}} = \frac{7m}{5} \dot{z} \Rightarrow z = z_0 + \frac{5 p_z}{7m} t
+.\end{align}
+On the other hand, for $\theta$, we have
+\begin{align}
+    \eqbox{ \ddot{\theta} + \frac{5 g}{7(R - \rho)} \sin{\theta} = 0 }
+.\end{align}
+
+}
 
 
 \prob{1.3}{
@@ -1075,7 +1134,37 @@ An ideal (flexible, uniform, frictionless, etc.) rope of length $l$ and mass $M$
 
 }
 
-\sol{}
+\sol{
+
+(a) Let $y$ denote the length of rope hanging off the table.
+The kinetic energy of the rope is then 
+\begin{align}
+    T = \int \frac{\dd{m} \dot{y}^2}{2} = \frac{M \dot{y}^2}{2}
+.\end{align}
+The potential energy is just
+\begin{align}
+    U = -\int \dd{m} g y' = -\rho g \int_0^{y} y' \dd{y'} = -\frac{M g y^2}{2 l}
+.\end{align}
+Putting these together, our Lagrangian
+\begin{align}
+    \eqbox{ L = \frac{M \dot{y}^2}{2} + \frac{M g y^2}{2 l} }
+.\end{align}
+
+(b) This Lagrangian yields the equation of motion
+\begin{align}
+    \eqbox{ \ddot{y} - \frac{g}{l} y = 0 }
+,\end{align}
+which has solution
+\begin{align}
+    y(t) = y_0 \cosh(\frac{g t}{l})
+.\end{align}
+
+(c) The time $\tau$ for the rope to be halfway off the table is defined through
+\begin{align}
+    y(\tau) = \frac{l}{2} \Rightarrow \eqbox{ \tau = \frac{l}{g} {\rm arcosh}\Big( \frac{y_0}{2 l} \Big) }
+.\end{align}
+
+}
 
 
 \prob{1.4}{
@@ -1095,7 +1184,23 @@ The $z$ axis is vertically up (and gravity vertically down).
 
 }
 
-\sol{}
+\sol{
+
+In cylindrical coordinates
+\begin{align}
+    \eqbox{ L = \frac{m}{2} \Big[ R^2 \dot{\phi}^2 + \dot{z}^2 \Big] - m g z = \frac{m}{2} \Big( 1 + \frac{4 R^2 z^2}{\lambda^{4}} \Big) \dot{z}^2 - m g z }
+.\end{align}
+
+(b) The equation of motion is just
+\begin{gather}
+    \eqbox{ m \Big( 1 + \frac{4 R^2 z^2}{\lambda^{4}} \Big) \ddot{z} + \frac{8 R^2 z \dot{z}^2}{\lambda^{4}} + mg = 0 }
+.\end{gather}
+
+
+(c) In the limit $R \rightarrow 0$ with fixed $\lambda$, our acceleration is just $\ddot{z} = -g$.
+In the second limit $\lambda \rightarrow \infty$ with fixed $R$, we have $\ddot{z} = -g$.
+
+}
 
 
 \prob{2.1}{
@@ -1105,7 +1210,31 @@ What are the amplitude and the angular frequency of the oscillations?
 
 }
 
-\sol{}
+\sol{
+
+The position as a function of time
+\begin{align}
+    x(t) = A \cos(\omega t + \gamma)
+,\end{align}
+and solving for $t$, we find
+\begin{align}
+    t = \frac{1}{\omega} \Big[ \arccos(\frac{x}{A}) - \gamma \Big]
+.\end{align}
+Putting this into the expression for velocity, we have
+\begin{align}
+    |\dot{x}| = A \omega | \sin(\omega t + \gamma) | = A \omega \Big|\sin(\arccos(\frac{x}{A}))\Big| = \omega \sqrt{A^2 - x^2}
+.\end{align}
+Using the boundary conditions, we have the system of equations
+\begin{align}
+    v_1 &= \omega \sqrt{A^2 - x_1^2} \\
+    v_2 &= \omega \sqrt{A^2 - x_2^2}
+.\end{align}
+Thus
+\begin{align}
+    \eqbox{ A = \sqrt{\frac{v_2^2 x_1^2 - v_1^2 x_2^2}{v_2^2 - v_1^2}}, \quad \omega = \sqrt{\frac{x_1^2 - x_2^2}{v_2^2 - v_1^2}} }
+.\end{align}
+
+}
 
 \subsection*{Electricity \& Magnetism}
 \addcontentsline{toc}{subsection}{Electricity \& Magnetism}
