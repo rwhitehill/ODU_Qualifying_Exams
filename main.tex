@@ -1297,7 +1297,14 @@ Express your result in terms of $a$, $b$, current $I$, $N$ and any constants.
 
 }
 
-\sol{}
+\sol{
+
+If we take our Amperian loop as shown by the dotted blue line, then
+\begin{align}
+    B(2 \pi r) = \mu_0 N I \Rightarrow \eqbox{ \vb*{B} = \frac{\mu_0 N I}{2 \pi r} \vu*{\phi} }
+.\end{align}
+
+}
 
 
 \prob{2.4}{
@@ -1314,7 +1321,25 @@ Calculate the force between the metallic sphere and the wire.
 
 }
 
-\sol{}
+\sol{
+
+If we assume that $a \ll R$, then we can treat the field produced by the wire as uniform enough to induce a dipole over the sphere.
+Such a field is determined by Gauss' law to be
+\begin{align}
+    \vb*{E} = \frac{\lambda}{2 \pi \epsilon_0 r} \vu*{r}
+,\end{align}
+where $r$ is the distance from the wire.
+The induced dipole is then just
+\begin{align}
+    \vb*{p} = 4 \pi \epsilon_0 a^3 \vb*{E} = \frac{2 \lambda a^3}{R} \vu*{r}
+.\end{align}
+The force on sphere by the wire is then just
+\begin{align}
+    \eqbox{ \vb*{F} = ( \vb*{p} \cdot \grad ) \vb*{E} = \frac{2 \lambda a^3}{R} \pdv{\vb*{E}}{r} = -\frac{2 \lambda a^3}{R} \frac{\lambda}{2 \pi \epsilon_0 R^2} \vu*{r} = -\frac{\lambda^2 a^3}{\pi \epsilon_0 R^3} \vu*{r} }
+.\end{align}
+
+
+}
 
 
 \prob{3.1}{
@@ -1325,7 +1350,15 @@ What is the minimal (``threshold'') energy of photons necessary to produce $\psi
 
 }
 
-\sol{}
+\sol{
+
+The threshold kinetic energy of the photon for $\psi'$ production is defined such that
+\begin{gather}
+    \sqrt{s} = \sqrt{m_{p}^2 + 2 m_{p} T_{\rm th}} = m_{\psi'} + m_{p} \nonumber \\
+    \eqbox{ T_{\rm th} = m_{\psi'} + \frac{m_{\psi'}^2}{2 m_{p}} \approx 11.7~{\rm GeV} }
+.\end{gather}
+
+}
 
 
 \prob{3.2}{
@@ -1336,7 +1369,25 @@ Find expressions for $\vb*{B}(0)$, the magnetic field at the origin, and $\vb*{m
 
 }
 
-\sol{}
+\sol{
+
+The Biot-Savart law is given generally by
+\begin{align}
+    \vb*{B}(\vb*{r}) = \frac{\mu_0}{4 \pi} \int \dd[3]{\vb*{r}'} \frac{\vb*{J}(\vb*{r}') \cross (\vb*{r} - \vb*{r}')}{|\vb*{r} - \vb*{r}'|^3}
+.\end{align}
+Working in cylindrical coordinates and evaluating at the origin, we have
+\begin{align}
+    \vb*{B}(\vb*{r}) &= \frac{\mu_0 a}{4 \pi} \int_{0}^{2\pi} \dd{\phi'} \int_{-\infty}^{\infty} \dd{z'} \frac{f(z') \vu*{\phi} \cross - ( a \vu*{s} + z \vu*{z} ) }{(a^2 + z'^2)^{3/2}} \nonumber \\
+                     &= \frac{\mu_0 a}{4 \pi} \int_{0}^{2\pi} \dd{\phi'} \int_{-\infty}^{\infty} \dd{z'} \frac{f(z')}{(a^2 + z'^2)^{3/2}} (a \vu*{z} - z \vu*{s}) \nonumber \\
+                     &= \eqbox{ \frac{\mu_0 a^2}{2} \vu*{z} \int_{-\infty}^{\infty} \dd{z'} \frac{f(z')}{(a^2 + z'^2)^{3/2}} }
+.\end{align}
+
+The magnetic moment of the cylinder is given as
+\begin{align}
+    \eqbox{ \vb*{m} = \frac{1}{2} \int \dd[3]{\vb*{r}} \vb*{r} \cross \vb*{J}(\vb*{r}) = \frac{a}{2} \int_{0}^{2 \pi} \dd{\phi'} \int_{-\infty}^{\infty} \dd{z'} (a \vu*{s} + z' \vu*{z}) \cross f(z') \vu*{\phi} = \frac{a^2}{2} \vu*{z} \int_{-\infty}^{\infty} f(z') \dd{z'} }
+.\end{align}
+
+}
 
 
 \prob{3.3}{
