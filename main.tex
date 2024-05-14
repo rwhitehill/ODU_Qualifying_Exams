@@ -1408,7 +1408,11 @@ Calculate:
 
 }
 
-\sol{}
+\sol{
+
+
+
+}
 
 \subsection*{Quantum Mechanics}
 \addcontentsline{toc}{subsection}{Quantum Mechanics}
@@ -1450,7 +1454,49 @@ A particle with spin $S = 1$ is in a state described by the following bra-vector
 
 }
 
-\sol{}
+\sol{
+
+(a) The probabilities are simply
+\begin{align}
+    \eqbox{ P(1) = \frac{1}{14}, \quad P(0) = \frac{2}{7}, \quad P(-1) = \frac{9}{14} }
+.\end{align}
+
+(b) The expectation values are as follows:
+\begin{align}
+\eqbox{
+\begin{aligned} 
+    \expval{S_x} &= \frac{\hbar}{\sqrt{2}} \frac{1}{14} \begin{pmatrix}
+        -i & 2 & 3
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+    i \\ 2 \\ 3
+    \end{pmatrix}
+    = \frac{6 \hbar}{7 \sqrt{2}}
+\\
+        \expval{S_y} &= \frac{\hbar}{\sqrt{2}} \frac{1}{14} \begin{pmatrix}
+        -i & 2 & 3
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & -i & 0 \\
+        i & 0 & -i \\
+        0 & i & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+    i \\ 2 \\ 3
+    \end{pmatrix}
+    = 0
+\\
+            \expval{S_z} &= \hbar \Big[ \frac{1}{14} - \frac{9}{14} \Big] = -\frac{4 \hbar}{7}
+\end{aligned}
+}
+.\end{align}
+
+}
 
 
 \prob{4.1}{
@@ -1469,7 +1515,46 @@ Evaluate the expectation value of the Hamiltonian with the potential $\overline{
 
 }
 
-\sol{}
+\sol{
+
+The time-independent Schr\"{o}dinger equation reads
+\begin{align}
+    -\frac{\hbar^2}{2m} \dv[2]{\psi}{x} - \frac{\hbar^2}{2m} v_0 \delta(x) \psi(x) = E \psi(x)
+.\end{align}
+If we consider $E < 0$, then the bound state solution takes the form
+\begin{align}
+    \psi(x) = \begin{cases}
+        A e^{\kappa x} & x < 0 \\
+        B e^{-\kappa x} & x > 0
+    ,\end{cases}
+\end{align}
+where $\kappa = \sqrt{2 m |E| / \hbar^2}$.
+We relate $\kappa$ and $A,B$ by using the following boundary conditions:
+\begin{align}
+    \psi(0^{-}) = \psi(0^{+}) \Rightarrow A = B \\
+    \psi(0^{+}) - \psi(0^{-}) = v_0 \psi(0) \Rightarrow 2 A \kappa = v_0 A \Rightarrow \kappa = \frac{v_0}{2}
+.\end{align}
+Thus,
+\begin{align}
+    \psi(x) = \sqrt{\kappa} e^{-\kappa |x|}
+.\end{align}
+The probability that the after the sudden change, the particle is measured to be in the ground state of the new potential is given by
+\begin{align}
+    \eqbox{ P = \Bigg| \sqrt{\kappa \bar{\kappa}} \int_{-\infty}^{\infty} \dd{x} e^{-(\kappa + \bar{\kappa}) |x|} \Bigg|^2 = \frac{4 \kappa^2 \bar{\kappa}^2}{(\kappa + \bar{\kappa})^2} = \frac{v_0^2 \bar{v}_0^2}{(v_0 + \bar{v}_0)^2} }
+.\end{align}
+Note that the probability is less than one because the completeness of states for the second potential includes the continuum of states, whose overlap with the initial state is not necessarily zero.
+
+The expectation value of the Hamiltonian in the new potential is
+\begin{align}
+    \expval{H} &= -\frac{\hbar^2 \kappa}{2m} \int_{-\infty}^{\infty} \dd{x} e^{-\kappa |x|} \Bigg[ \dv[2]{x} + \bar{v}_0 \delta(x) \Bigg] e^{-\kappa |x|} \nonumber \\
+               &= -\frac{\hbar^2 \kappa}{2m} \Bigg[ \kappa^2 \int_{-\infty}^{\infty} \dd{x} e^{- 2 \kappa |x|} + \bar{v}_0 \Bigg] = -\frac{\hbar^2 v_0}{4 m} \Big( \frac{v_0}{2} + \bar{v}_0 \Big) = E - \frac{\hbar^2 v_0 \bar{v}_0}{4m}
+.\end{align}
+The energy required to change our Hamiltonian as prescribed is then
+\begin{align}
+    \eqbox{ \Delta E = \frac{\hbar^2 v_0 \bar{v}_0}{4m} = \frac{2 \bar{v}_0}{v_0} |E| }
+.\end{align}
+
+}
 
 
 \prob{4.2}{
@@ -1490,7 +1575,28 @@ Note that you do not need to evaluate this integral!
 
 }
 
-\sol{}
+\sol{
+
+The first order correction vanishes:
+\begin{align}
+    E_1^{(1)} = \mel{\phi_{100}}{q \mathcal{E} z}{\phi_{100}} = q \mathcal{E} \mel{\phi_{100}}{z}{\phi_{100}} = 0
+,\end{align}
+where the expectation value of $z$ vanishes because of parity selection rules.
+Thus, we must go to second order to see if we have a nonvanishing correction:
+\begin{align}
+    E_1^{(2)} = \sum_{nlm \ne 100} \frac{|\mel{\phi_{nlm}}{q E z}{\phi_{100}}|^2}{\epsilon_1 - \epsilon_n} = \frac{q^2 E^2}{\epsilon_1} \sum_{nlm \ne 100} \frac{1}{1 - 1/n^2} |\mel{\phi_{nlm}}{z}{\phi_{100}}|^2
+.\end{align}
+All that remains is to determine the matrix elements in the sum:
+\begin{align}
+    \mel{\phi_{nlm}}{z}{\phi_{100}} &= \int \dd[3]{\vb*{r}} R_{nl}(r) Y_{lm}^{*}(\Omega) z R_{10}(r) Y_{10}(\Omega) = \frac{1}{3} \delta_{l 1} \delta_{m 0} \int_{0}^{\infty} \dd{r} r^3 R_{n_1}(r) R_{10}(r) \nonumber \\
+    &= \frac{\gamma_n}{3} \delta_{l1} \delta_{m 0}
+.\end{align}
+Thus
+\begin{align}
+    \eqbox{ E_1^{(2)} = \frac{q^2 E^2}{3 \epsilon_1} \sum_{n=2}^{\infty} \frac{\gamma_n^2}{1 - 1/n^2} }
+.\end{align}
+
+}
 
 
 \prob{4.3}{
@@ -1523,7 +1629,10 @@ Suppose at time $t = 0$, the system is in the normalized state $\ket{\psi(0)}$ g
 
 }
 
-\sol{}
+\sol{
+
+
+}
 
 
 \prob{4.4}{
