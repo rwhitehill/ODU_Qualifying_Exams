@@ -1247,7 +1247,40 @@ If one of the photons emerge at angle $\theta$ to the incident electron directio
 
 }
 
-\sol{}
+\sol{
+
+From the conservation of energy and 3-momentum, we have the set of equations
+\begin{align}
+\begin{cases}
+    E + m_e = E_\gamma + E_{\gamma}' \\
+    p_e = E_\gamma \cos{\theta} + E_{\gamma}' \cos{\theta'} \\
+    0 = E_\gamma \sin{\theta} - E_{\gamma}' \sin{\theta'}
+.\end{cases}
+\end{align}
+From the last equation, we can write
+\begin{align}
+    E_{\gamma} = E_{\gamma'} \frac{\sin{\theta'}}{\sin{\theta}}
+.\end{align}
+Putting this into the second equation,
+\begin{align}
+    p_{e} = E_{\gamma'} \Big( \cot{\theta} \sin{\theta'} + \cos{\theta'} \Big) \Rightarrow E_{\gamma}' = \frac{p_{e}}{\cot{\theta} \sin{\theta'} + \cos{\theta'}}
+.\end{align}
+Putting this into the first equation, we find
+\begin{gather}
+    E + m_{e} = \frac{p_{e}}{\cot{\theta} \sin{\theta'} + \cos{\theta'}} \Big( 1 + \frac{\sin{\theta'}}{\sin{\theta}} \Big) \nonumber \\
+    \frac{E + m_{e}}{p_{e}} = \frac{\sin{\theta} + \sin{\theta'}}{\cos{\theta}\sin{\theta'} + \sin{\theta} \cos{\theta'}} 
+.\end{gather}
+Solving for $\sin{\theta'}$, we find
+\begin{align}
+    \frac{\sin{\theta'}}{\sin{\theta}} = \frac{(A \cos{\theta} - 1) \pm A ( A - \cos{\theta} )}{1 + A^2 - 2 A \cos{\theta}}
+,\end{align}
+where $A = (E + m_{e})/p_{e}$.
+There are two solutions here, where the $-$ yields that the two photons go off together in the same direction, leaving us with
+\begin{align}
+    \eqbox{ \frac{\sin{\theta'}}{\sin{\theta}} = \frac{A^2 - 1}{1 + A^2 - 2A \cos{\theta}} = \frac{(E + m_{e})^2 - p_{e}^2}{p_{e}^2 + (E + m_{e})^2 - 2 p_{e} (E + m_{e}) \cos{\theta}} = \frac{m_{e}}{E - p_{e} \cos{\theta}} }
+.\end{align}
+
+}
 
 
 \prob{2.3}{
