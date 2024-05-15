@@ -1410,7 +1410,38 @@ Calculate:
 
 \sol{
 
+We can construct the potential via the method of images.
+For the potential in region 1, let's place an image charge the same distance from the $yz$-plane as the real charge but of magnitude $q'$:
+\begin{align}
+    \varphi_1 = \frac{1}{4 \pi \epsilon_1} \Bigg[ \frac{q}{\sqrt{(x + L)^2 + \rho^2}} + \frac{q'}{(x - L)^2 + \rho^2} \Bigg]
+,\end{align}
+where $\rho^2 = y^2 + z^2$.
+In the second region, let's replace the charge $q$ with $q''$ to write
+\begin{align}
+    \varphi_2 = \frac{1}{4 \pi \epsilon_2} \frac{q''}{\sqrt{(x + L)^2 + \rho^2}}
+.\end{align}
+We can solve for the image charge magnitude $q'$ and $q''$ by enforcing boundary conditions:
+\begin{align}
+    ( \vb*{D}_{2} - \vb*{D}_{1} ) \cdot \vu*{x} = 0 \Rightarrow q - q' = q'' \\
+    ( \vb*{E}_{2} - \vb*{E}_{1} ) \cdot \vu*{\rho} = 0 \Rightarrow \epsilon_2(q + q') = \epsilon_1 q''
+.\end{align}
+Thus
+\begin{align}
+    q' = \frac{\epsilon_1 - \epsilon_2}{\epsilon_1 + \epsilon_2} q, \quad q'' = \frac{2 \epsilon_2}{\epsilon_1 + \epsilon_2} q
+.\end{align}
+From this, we can write
+\begin{align}
+    \eqbox{ \varphi(x,y,z) = \frac{q}{4 \pi} \begin{cases}
+            \displaystyle \frac{1}{\epsilon_1} \Big\{ \frac{1}{\sqrt{(x + L)^2 + y^2 + z^2}} + \frac{\epsilon_1 - \epsilon_2}{\epsilon_1 + \epsilon_2} \frac{1}{\sqrt{(x - L)^2 + y^2 + z^2}} \Big\} & x < 0\\
+        \displaystyle \frac{2}{\epsilon_1 + \epsilon_2} \frac{1}{\sqrt{(x + L)^2 + y^2 + z^2}} & x > 0
+    \end{cases}
+}
+.\end{align}
 
+(b) The force on the charge in region 1 is that from the image charge $q'$
+\begin{align}
+    \vb*{F} = \frac{1}{4 \pi \epsilon_1} \frac{\epsilon_1 - \epsilon_2}{\epsilon_1 + \epsilon_2} \frac{q^2}{(2 L)^2} \vu*{x}
+.\end{align}
 
 }
 
