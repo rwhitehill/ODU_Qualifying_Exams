@@ -1,11 +1,6 @@
-%--------------------------%
-\section{January 2022} %---%
-%--------------------------%
-% \addcontentsline{toc}{section}{January 2022}
+\section{January 2022}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Classical Mechanics} %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Classical Mechanics}
 \addcontentsline{toc}{subsection}{Classical Mechanics}
 
 \prob{1.1}{
@@ -42,7 +37,44 @@ where $\eta > 0$.
 
 }
 
-\sol{}
+\sol{
+
+(a) The expanded equation of motion is given as follows:
+\begin{align}
+    \eqbox{ m \ddot{x} + 2 \eta \dot{x} + k x = 0 }
+.\end{align}
+
+(b) The system described above is a simple, damped harmonic oscillator (a mass on a spring with non-negligible drag from the fluid it is placed in).
+
+(c) We can write a solution ansatz as $x(t) = A e^{i \omega t}$.
+Note that the physical solution is the real part of this, where $A$ is complex and therefore encodes a phase as well.
+
+(d) Plugging in our ansatz, we have
+\begin{align}
+    A \Big( -m \omega^2 + 2 i \eta \omega - k \Big) e^{i \omega t} = 0 \Rightarrow \eqbox{ \omega_{\pm} = i \beta \pm \sqrt{\omega_0^2 - \beta^2} }
+,\end{align}
+where we have defined $\omega_0 = \sqrt{k/m}$ and $\beta = \eta / m$.
+
+(e) There are three situations, governed by the sign of the radicand.
+First, if $\omega_0 > \beta$, then we have an underdamped situation
+\begin{align}
+    \eqbox{ x(t) = A e^{-\beta t} \cos(\Omega t + \gamma) }
+,\end{align}
+where $\Omega = \sqrt{\omega_0^2 - \beta^2}$ and $A,\gamma$ are constants determined by initial conditions.
+Next, if $\omega_0 = \beta$, then we have perfectly damped motion
+\begin{align}
+    \eqbox{ x(t) = e^{-\beta t} ( A + B t ) }
+,\end{align}
+where $A,B$ are constants determined by initial conditions.
+Note that in this case, the radicand is zero and $\omega_+ = \omega_-$.
+It turns out that $t e^{-\beta t}$ is a linearly independent solution from the purely damped exponential, which can be checked \textit{a posteriori}, or derived by factoring the second order differential operator as in the difference of squares.
+Lastly, we have the overdamped situation, where
+\begin{align}
+    \eqbox{ x(t) = e^{-\beta t} \Big[ A e^{-\kappa t} + B e^{\kappa t} \Big] }
+,\end{align}
+where again $A,B$ are determined by initial conditions and $\kappa = \sqrt{\beta^2 - \omega_0^2}$.
+
+}
 
 
 \prob{1.2}{
@@ -62,7 +94,40 @@ The suspension point $O$ of the pendulum is driven by a motor along $x$ in such 
 
 }
 
-\sol{}
+\sol{
+
+(a) The coordinates of the mass are given by
+\begin{align}
+    x = x_s + l \sin{\varphi}, \quad y = - l \cos{\varphi}
+,\end{align}
+where $x_{s}$ is the horizontal position of the suspension point,
+so
+\begin{align}
+    \dot{x} = \dot{x}_s + l \dot{\varphi} \cos{\varphi}, \quad \dot{y} = l \dot{\varphi} \sin{\varphi}
+.\end{align}
+From this, we see that the Lagrangian
+\begin{align}
+    L &= \frac{m}{2} \Big[ (\dot{x}_{s} + l \dot{\varphi} \cos{\varphi})^2 + l^2 \dot{\varphi}^2 \sin^2{\varphi} \Big] + m g l \cos{\varphi} \nonumber \\
+    &= \eqbox{ \frac{m}{2} \Big[ l^2 \dot{\varphi}^2 + 2 l \dot{x}_{s} \dot{\varphi} \cos{\varphi} + \dot{x}_{s}^2 \Big] + m g l \cos{\varphi} }
+.\end{align}
+
+
+(b) We can write down the equation of motion as follows:
+\begin{align}
+    m l^2 \ddot{\varphi} + ml( \ddot{x}_{s} \cos{\varphi} - \dot{x}_{s} \dot{\varphi} \sin{\varphi} ) + m g l \sin{\varphi} = 0
+.\end{align}
+If we introduce the prescribed motion of the suspension point and assume small oscillations
+\begin{align}
+    \eqbox{ \ddot{\varphi} + \Big( \frac{g}{l} - \frac{x_0 \omega}{l} \cos{\omega t} \Big) \varphi  = \frac{x_0 \omega^2}{l} \sin{\omega t} }
+.\end{align}
+If we assume that $x_0 \omega \ll g$, then the equation of motion looks like a driven oscillator with natural frequency $\omega_0 = \sqrt{g / l}$.
+Thus,
+\begin{align}
+    \eqbox{ \varphi(t) = A \cos(\omega_0 t + \gamma) + \frac{x_0/l}{(\omega_0 / \omega)^2 - 1} \sin{\omega t} }
+,\end{align}
+where $A, \gamma$ are constants to be determined by initial conditions.
+
+}
 
 
 \prob{1.3}{
@@ -77,7 +142,17 @@ show that the projection of the total angular momentum along $\vu*{n}$ is conser
 
 }
 
-\sol{}
+\sol{
+
+Under the same rotation, the angular momentum
+\begin{align}
+    \vb*{L}' &= \vb*{r}' \cross \vb*{p}' = ( \vb*{r} + \eta \vu*{n} \cross \vb*{r} ) \cross (\vb*{p} + \eta \vu*{n} \cross \vb*{p}) = \vb*{L} + \eta [ \vb*{r} \cross (\vu*{n} \cross \vb*{p}) - \vb*{p} \cross ( \vu*{n} \cross \vb*{r} ) ] \nonumber \\
+    &= \vb*{L} + \eta [ \vb*{r} ( \vu*{n} \cdot \vb*{p} ) - \vb*{p} ( \vu*{n} \cdot \vb*{r} ) ] = \vb*{L} + \eta \vu*{n} \cross \vb*{L}
+.\end{align}
+Note that we have neglected the terms of $\mathcal{O}(\eta^2)$.
+From this form, it is obvious that $\vb*{L}' \cdot \vu*{n} = \vb*{L} \cdot \vu*{n}$.
+
+}
 
 
 \prob{1.4}{
@@ -127,11 +202,36 @@ Treating the monkey's motion as a (time-dependent) constraint in the Lagrangian 
 
 }
 
-\sol{}
+\sol{
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Electricity \& Magnetism} %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Let's solve this problem in the Lagrangian fomalism.
+We have two constraints.
+First, the length of the rope is constant $x_1 + x_2 = L$, where $x_1$ and $x_2$ are the heights of the ends of the rope from some reference.
+Second, we have $x_2 + \Delta x = x$, where $\Delta x$ is the height of the monkey relative to the end of the rope and $x$ is its height relative to the absolute reference point.
+We then have as our Lagrangian
+\begin{align}
+    L &= \frac{m_1 \dot{x}_{1}^2}{2} + \frac{m_2 \dot{x}^2}{2} - m_1 g x_1 - m_2 g x \nonumber \\
+    &= \frac{m_1 \dot{x}_{1}^2}{2} + \frac{m_2 ( v - \dot{x}_{1} )^2}{2} - m_1 g x_1 - m_2 g L + m_2 g x_1 - m_2 g \Delta x
+.\end{align}
+The equation of motion for $x_1$ is
+\begin{align}
+    ( m_1 + m_2 ) \ddot{x}_{1} + ( m_1 - m_2 ) g = m_2 \dot{v} \Rightarrow \ddot{x}_1 = \frac{m_2 \dot{v} + (m_2 - m_1) g}{m_1 + m_2}
+.\end{align}
+
+If we have constant $v$, then
+\begin{align}
+    \eqbox{ \ddot{x}_1 = \frac{m_2 - m_1}{m_1 + m_2} g }
+.\end{align}
+
+
+(b) If we instead have $\dot{v} = a$, where $a$ is constant,
+\begin{align}
+    \eqbox{ \ddot{x}_1 = \frac{m_2 a + (m_2 - m_1) g}{m_1 + m_2} }
+.\end{align}
+
+}
+
+\subsection*{Electricity \& Magnetism}
 \addcontentsline{toc}{subsection}{Electricity \& Magnetism}
 
 \prob{2.2}{
@@ -272,7 +372,17 @@ What happens to the sphere's axis of rotation?
 
 }
 
-\sol{}
+\sol{
+
+Let us orient our coordinate system so that the $z$-axis aligns with the angular velocity of the rotation.
+Similarly, let's orient the magnetic field at an angle $\theta$ relative to the $z$-axis fixed in the $zy$-plane.
+The rotating charges constitute a surface current $\vb*{K}$, whose direction is given by $\vu*{\phi}$.
+The force on the sphere is proportional to the vector product $\int \dd[3]{\vb*{r}} \vb*{K} \cross \vb*{B}$.
+Since the field is constant and we are in the realm of magnetostatics, there is no net force on the sphere.
+Another consideration, however is the torque on the sphere, which is proportional to $\int \dd[3]{\vb*{r}} \vb*{r} \cross ( \vb*{K} \cross \vb*{B} )$, which is nonzero unless $\vb*{B}$ and $\vb*{K}$ are (anti-)parallel.
+This torque will cause the axis of rotation to precess around the magnetic field.
+
+}
 
 
 \prob{3.1}{
@@ -292,7 +402,11 @@ You should verify that your image solution satisfies the correct boundary condit
 
 }
 
-\sol{}
+\sol{
+
+
+
+}
 
 \prob{3.2}{
 
@@ -308,7 +422,46 @@ A particle with charge $q$ and mass $m$ moves in a parabolic potential $U(x,y,z)
 
 }
 
-\sol{}
+\sol{
+
+The force acting on the charge is given as
+\begin{align}
+    m \ddot{\vb*{r}} = q \dot{\vb*{r}} \cross B \vu*{z} - k (x \vu*{x} + y \vu*{y} + z \vu*{z})
+.\end{align}
+In component form, we have
+\begin{align}
+\eqbox{
+\begin{aligned} 
+    \ddot{x} &= \frac{q B_z}{m} \dot{y} - \frac{k}{m} x \\
+    \ddot{y} &= - \frac{q B_z}{m} \dot{x} - \frac{k}{m} y \\
+    \ddot{z} &= -\frac{k}{m} z
+.\end{aligned}
+}
+\end{align}
+
+
+(b) The oscillation in the $z$ direction is unchanged as a result of the existence of the magnetic field.
+If we insert $x = A e^{i \omega t}$ and $y = B e^{i \omega t}$, then
+\begin{align}
+    \begin{pmatrix}
+        \omega^2 - \omega_0^2 & i \omega \omega_c \\
+        -i \omega \omega_c & \omega^2 - \omega_0^2
+    \end{pmatrix}
+    \begin{pmatrix}
+    A \\ B
+    \end{pmatrix}
+    = 0
+,\end{align}
+where $\omega_0 = \sqrt{k/m}$ and $\omega_c = q B_z / m$.
+This is solved by requiring the matrix to have zero determinant, yielding
+\begin{align}
+    \eqbox{ \omega_{\pm}^2 = \omega_0^2 + \frac{\omega_{c}^2}{2} \pm \omega_c \sqrt{\omega_0^2 + \frac{\omega_{c}^2}{4}} }
+.\end{align}
+The positive branch corresponds to strictly oscillatory motion.
+If $\omega_{c} \sqrt{\omega_0^2 + (\omega_{c}/2)^2} > \omega_0^2 + \omega_{c}^2 / 2$, then the negative branch corresponds to damped motion, which dies out over time and leaves only the first oscillation mode.
+If they are equal, then the 
+
+}
 
 
 \prob{3.3}{
@@ -336,9 +489,7 @@ You may use symmetry arguments as much as possible to simplify the calculation, 
 \sol{}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Quantum Mechanics} %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Quantum Mechanics}
 \addcontentsline{toc}{subsection}{Quantum Mechanics}
 
 \prob{3.4}{
