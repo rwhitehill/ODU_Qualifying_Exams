@@ -1,10 +1,6 @@
-%----------------------%
-\section{May 2022} %---%
-%----------------------%
+\section{May 2022}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Classical Mechanics} %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Classical Mechanics}
 \addcontentsline{toc}{subsection}{Classical Mechanics}
 
 \prob{1.1}{
@@ -34,7 +30,114 @@ The ends of pendula are connected by a spring constant $k$ that is in its relaxe
 
 }
 
-\sol{}
+\sol{
+
+(a) The position vectors $\vec{r}_{1,2} = L(\sin{\phi_{1,2}} \vu*{x} - \cos{\phi_{1,2}} \vu*{y})$.
+This allows us to write
+\begin{align}
+    L &= \frac{m_1 \dot{\vec{r}}_1^2}{2} + \frac{m_2 \dot{\vec{r}}_2^2}{2} - m_1 g y_1 - m_2 g y_2 - \frac{k}{2} (\vec{r}_1 - \vec{r}_2)^2 \nonumber \\
+      &= \frac{m_1 L^2}{2} \dot{\phi}_1^2 + \frac{m_2 L^2}{2} \dot{\phi}_2^2 + m_1 g L \cos{\phi_1} + m_2 g L \cos{\phi_2} \\
+          &- \frac{k L^2}{2} \Big[ (\sin{\phi_1} - \sin{\phi_2})^2 + (\cos{\phi_1} - \cos{\phi_2})^2 \Big] 
+.\end{align}
+Let us make the assumption that the angular displacements are small such that $\sin{\phi_{1,2}} \approx \phi_{1,2}$ and $\cos{\phi_{1,2}} \approx 1 - \phi_{1,2}^2 / 2$.
+The Lagrangian then becomes
+\begin{align}
+    \eqbox{ L = \frac{m_1 L^2}{2} \dot{\phi}_1^2 + \frac{m_2 L^2}{2} \dot{\phi}_2^2 - \frac{m_1 g L}{2} \phi_1^2 + \frac{m_2 g L}{2} \phi_2^2 - \frac{5 k L^2}{4} ( \phi_1 - \phi_2 )^2 }
+.\end{align}
+
+
+(b) The matrices
+\begin{align}
+\eqbox{
+    T = \begin{pmatrix}
+        m_1 L^2 & 0 \\
+        0 & m_2 L^2
+    \end{pmatrix}, 
+    \quad 
+    V = \begin{pmatrix}
+        m_1 g L + 5 k L^2 / 4 & -5 k L^2 / 2 \\
+        -5 k L^2 / 2 & m_2 g L + 5 k L^2 / 4
+    \end{pmatrix}
+}
+.\end{align}
+
+(c) The Euler-Lagrange equations of motion are as follows:
+\begin{align}
+    m_1 L^2 \ddot{\phi}_1 + m_1 g L \phi_1 + \frac{5 k L^2}{2} (\phi_1 - \phi_2) = 0 \\
+    m_2 L^2 \ddot{\phi}_2 + m_2 g L \phi_2 - \frac{5 k L^2}{2} (\phi_1 - \phi_2) = 0
+.\end{align}
+In matrix form,
+\begin{align}
+    \begin{pmatrix}
+        m_1 L^2 & 0 \\
+        0 & m_2 L^2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \ddot{\phi}_1 \\ \ddot{\phi}_2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        m_1 g L + 5 k L^2/2 & - 5 k L^2/2 \\
+        -5 k L^2 / 2 & m_2 g L + 5 k L^2 / 2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix}
+.\end{align}
+Let's insert the ansatz $\vec{\phi} = \vec{a} e^{-i \omega t}$, which yields
+\begin{align}
+    \begin{pmatrix}
+        m_1 g L + 5 k L^2/2 - m_1 L^2 \omega^2 & - 5 k L^2/2 \\
+        -5 k L^2 / 2 & m_2 g L + 5 k L^2 / 2 - m_2 L^2 \omega^2
+    \end{pmatrix}
+    \vec{a} = 0
+.\end{align}
+For nontrivial solutions $\vec{a}$, we must have that the determinant of the matrix above is zero.
+Enforcing this conition, we obtain the quadratic equation
+\begin{align}
+    m_1 m_2 L^2 \omega^4 + 2 \Big( m_1 m_2 g L + \frac{5 k (m_1 + m_2) L^2}{8} \Big) \omega^2 + \Big( m_1 m_2 g^2 L^2 + \frac{5 k (m_1 + m_2) L^2}{4} \Big) = 0
+\end{align}
+
+(d) Solving, we find
+\begin{gather}
+    \omega_{\pm}^2 = \Big( \frac{g}{L} + \frac{5 k (m_1 + m_2)}{8 m_1 m_2} \Big) \pm \frac{5 k (m_1 + m_2)}{8 m_1 m_2} \nonumber \\
+    \Rightarrow \eqbox{ \omega_+^2 = \frac{g}{L}, \quad \omega_-^2 = \frac{g}{L} + \frac{5 k (m_1 + m_2)}{4 m_1 m_2} }
+.\end{gather}
+The corresponding eigenvectors are determined as follows:
+\begin{align}
+    -\frac{5 k L^2}{4} \begin{pmatrix}
+        m_1 / m_2 & 1 \\
+        1 & m_2 / m_1
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_{1+} \\ a_{2+}
+    \end{pmatrix}
+    = 0
+    \Rightarrow \eqbox{ \vec{a}_+ = \begin{pmatrix}
+        1 \\ -m_1/m_2
+    \end{pmatrix}
+}
+\\
+     -\frac{5 k L^2}{4} \begin{pmatrix}
+        -1 & 1 \\
+        1 & -1 
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_{1-} \\ a_{2-}
+    \end{pmatrix}
+    = 0
+    \Rightarrow \eqbox{ \vec{a}_- = \begin{pmatrix}
+        1 \\ 1
+    \end{pmatrix}
+}
+.\end{align}
+
+(e) The normal modes can be interpreted as follows.
+The ``$+$'' branch describes the oscillators moving in unison in the same direction.
+That is, they are essentially independent since the spring does not compress given that the displacements of the oscillators are the same.
+On the other hand, the ``$-$'' branch describes the oscillators moving in opposite directions, in phase.
+
+}
 
 
 \prob{1.2}{
@@ -49,7 +152,28 @@ Express your answer in terms of $\theta$ and its derivatives, $r = a + b$, $b$, 
 
 }
 
-\sol{}
+\sol{
+
+Taking our origin at the center of the larger cylinder, we can write the position vector of the smaller cylinder as
+\begin{align}
+    \vec{r} = r ( \sin{\theta} \vu*{x} + \cos{\theta} \vu*{y} ) \Rightarrow \dot{\vec{r}} = r \dot{\theta} ( \cos{\theta} \vu*{x} - \sin{\theta} vu*{y} ) \Rightarrow v^2 = r^2 \dot{\theta}^2
+,\end{align}
+where $r = a + b$.
+The kinetic energy
+\begin{align}
+    T = \frac{m v^2}{2} + \frac{I \omega^2}{2} = \frac{m v^2}{2} + \frac{1}{2} \Big( \frac{1}{2} m a^2 \Big) \Big( \frac{v^2}{a^2} \Big) = \frac{3 m v^2}{4}
+.\end{align}
+Therefore, the Lagrangian
+\begin{align}
+    L = \frac{3 m r^2 \dot{\theta}^2}{4} - m g r \cos{\theta}
+.\end{align}
+From this, we find the equation of motion
+\begin{align}
+    \eqbox{ \ddot{\theta} - \frac{2 g}{3 r} \sin{\theta} = 0 }
+.\end{align}
+
+
+}
 
 
 \prob{1.3}{
@@ -101,9 +225,7 @@ The potential energy of the particle's interaction is given by $U(r) = -U_0 (R/r
 
 \sol{}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Electricity \& Magnetism} %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Electricity \& Magnetism}
 \addcontentsline{toc}{subsection}{Electricity \& Magnetism}
 
 \prob{2.2}{
@@ -231,9 +353,7 @@ Finally, because of the boundary conditions (see below), there must also be a re
 
 \sol{}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Quantum Mechanics} %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Quantum Mechanics}
 \addcontentsline{toc}{subsection}{Quantum Mechanics}
 
 \prob{3.4}{

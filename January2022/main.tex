@@ -404,7 +404,18 @@ You should verify that your image solution satisfies the correct boundary condit
 
 \sol{
 
-
+We know how to place two charges already.
+First we have $q_1$ as if the setup was only the plane: $q_1 = -q$ at $z = -r$.
+Next, we have $q_2$ as if the setup was only the sphere: $q_2 = -q(R/r)$ at $z = R^2 / r$.
+Notice though that we are not done.
+The charges $q$ and $q_1$ cancel on the plane, leaving the contribution of $q_2$.
+Meanwhile, the charges $q$ and $q_2$ cancel on the hump, leaving the contribution of $q_1$.
+We should place a third charge which simultaneously cancels both of these unbalanced contributions.
+After some inspection, we can place a charge $q_3 = (R/r) q$ at $z = -R^2/r$, which cancels both happily on the needed surfaces.
+From this, the force on the charge $q$ is
+\begin{align}
+    \vec{F} = \frac{q^2}{4 \pi \epsilon_0} \Bigg[ -\frac{R/r}{(r - R^2 / r)^2} + \frac{R/r}{(r + R^2/r)^2} - \frac{1}{(2r)^2} \Bigg] \vu*{z} = -\frac{q^2}{4 \pi \epsilon_0} \Bigg[ \frac{2 r^3 R^3}{(r^4 - R^4)^4} + \frac{1}{4 r^4} \Bigg] \vu*{z}
+\end{align}
 
 }
 
@@ -486,7 +497,31 @@ You may use symmetry arguments as much as possible to simplify the calculation, 
 
 }
 
-\sol{}
+\sol{
+
+The force on a current density is given generically by
+\begin{align}
+    \vec{F} = \int \dd[3]{\vec{x}} \vec{J}(\vec{x}) \cross \vec{B}(\vec{x})
+,\end{align}
+which reduces to
+\begin{align}
+    \vec{F} = I \int \dd{\vec{l}} \cross \vec{B}(\vec{x})
+.\end{align}
+Before doing any integration, we should determine the magnetic field from the straight wire using Ampere's law:
+\begin{align}
+    \oint \vec{B} \cdot \dd{\vec{l}} = B_{\phi} (2 \pi r) = \mu_0 I \Rightarrow \vec{B} = \frac{\mu_0 I}{2 \pi r} \vu*{\phi}
+,\end{align}
+where the direction of $\vu*{\phi}$ is determined by the right-hand rule.
+For the purposes of calculation, let's set our origin at the lower left corner of the square with the $x$ axis pointing to the right and $y$ pointing up.
+Thus, at the square loop, the magnetic field points in the $-z$ direction.
+Quantitatively, we have
+\begin{align}
+    \vec{F} &= \frac{\mu_0 I^2}{2 \pi} \Bigg\{ \int_{0}^{l} \frac{\dd{y} \vu*{y} \cross (-\vu*{z})}{L} + \int_{0}^{l} \frac{\dd{x} \vu*{x} \cross (-\vu*{z})}{L + x} + \int_{0}^{l} \frac{-\dd{y} \vu*{y} \cross (-\vu*{z})}{L + l} + \int_{0}^{l} \frac{-\dd{x} \vu*{x} \cross (-\vu*{z})}{L + x} \Bigg\} \nonumber \\
+            &= \frac{\mu_0 I^2}{2 \pi} \Bigg\{ -\vu*{x} \frac{l}{L} + \vu*{x} \frac{l}{L + l} \Bigg\} = \eqbox{ -\frac{\mu_0 I^2 l^2}{2 \pi L(L + l)} \vu*{x} }
+\end{align}
+
+
+}
 
 
 \subsection*{Quantum Mechanics}
@@ -506,7 +541,30 @@ Consider a spinless particle with mass $m$ in the three-dimensional potential $V
 
 }
 
-\sol{}
+\sol{
+
+(a) Observe that the potential is that of a harmonic oscillator with frequency $\omega = \sqrt{2 C / m}$.
+Knowing this, we can immediately write
+\begin{align}
+    \eqbox{ E_{n_x,n_y,n_z} = \hbar \omega ( n_x + n_y + n_z + 3/2 ) = \hbar \omega ( n + 3/2 ) = E_n }
+.\end{align}
+The degeneracies of the three lowest eigenvalues are as follows:
+\begin{align}
+    \eqbox{ E_0: ~ g_0 = 1, \quad E_1:~g_1 = 3, \quad E_2: ~ g_2 = 6 }
+.\end{align}
+
+
+(b) If we have five non-interacting spin-1/2 particles in this potential, the ground state energy
+\begin{align}
+    \eqbox{ E = E_0 + 3 E_1 + E_2 = \frac{25}{2} \hbar \omega }
+,\end{align}
+while if we have five non-interacting spin-1 particles the ground state energy
+\begin{align}
+    \eqbox{ E = 5 E_0 = \frac{15}{2} \hbar \omega }
+.\end{align}
+The essential observation is that identical fermions cannot exist in the same state (i.e. the Pauli exclusion principle), while identical bosons can exist in the same state.
+
+}
 
 
 \prob{4.1}{
@@ -541,7 +599,36 @@ By definition,
 
 }
 
-\sol{}
+\sol{
+
+(a) Observe that $\sigma_1^2 = 1$, so
+\begin{align}
+\eqbox{
+\begin{aligned}
+    e^{\alpha \sigma_1} &= \sum_{n = 0}^{\infty} \frac{\alpha^n}{n!} \sigma_1^n = \sum_{n=0}^{\infty} \frac{\alpha^{2n}}{(2n)!} \sigma_1^{2n} + \sum_{n=0}^{\infty} \frac{\alpha^{2n+1}}{(2n+1)!} \sigma_1^{2n+1} \\
+                        &= \cosh{\alpha} + \sigma_1 \sinh{\alpha} 
+    = \begin{pmatrix}
+        \cosh{\alpha} & \sinh{\alpha} \\
+        \sinh{\alpha} & \cosh{\alpha}
+    \end{pmatrix}
+\end{aligned}
+}
+\end{align}
+
+
+(b) Recall the eigenstates of $\sigma_1$ are
+\begin{align}
+    \ket{\pm}_x = \frac{1}{\sqrt{2}} \begin{pmatrix}
+        1 \\ \pm 1
+    \end{pmatrix}
+\end{align}
+with corresponding eigenvalues $\pm 1$.
+Observe that
+\begin{align}
+    \eqbox{ e^{\alpha \sigma_1} \ket{\pm}_x = ( \cosh{\alpha} \pm \sinh{\alpha} ) \ket{\pm}_x = e^{\pm \alpha} \ket{\pm}_x }
+\end{align}
+
+}
 
 
 \prob{4.2}{
@@ -564,7 +651,33 @@ where $\psi_n(x)$ are the orthonormal eigenfunctions of the energy with eigenval
 
 }
 
-\sol{}
+\sol{
+
+(a) The normalization can be determined as follows:
+\begin{gather}
+    \int \dd{x} |\psi(x,0)|^2 = A^2 \sum_{n,m} \Big( \frac{1}{\sqrt{2}} \Big)^{n+m} \underbrace{ \int \dd{x} \psi_n^*(x) \psi_m(x) }_{\delta_{nm}} = A^2 \sum_n \frac{1}{2^n} = 2 A^2 = 1 \nonumber \\
+    \Rightarrow \eqbox{ A = \frac{1}{\sqrt{2}} }
+.\end{gather}
+
+
+(b) We can inject time-dependence into the state using the unitary time-evolution operator:
+\begin{align}
+    \eqbox{ \psi(x,t) = e^{-i H t / \hbar} \psi(x,0) = \sum_n \Big( \frac{1}{\sqrt{2}} \Big)^{n+1} e^{-i (n + 1/2) \omega t} \psi_n(x) }
+\end{align}
+
+
+(c) Observe that
+\begin{align}
+    |\psi(x,t)|^2 = \sum_{n,m} \Big( \frac{1}{\sqrt{2}} \Big)^{n+m+2} e^{-i(m - n) \omega t} \psi_n^*(x) \psi_m(x)
+.\end{align}
+Terms with $n = m$ are constant in time, while the interference terms have period
+\begin{align}
+    T_{nm} = \frac{2\pi}{(n - m) \omega} = \frac{1}{n-m} T \Rightarrow \eqbox{ T = \frac{2 \pi}{\omega} }
+.\end{align}
+Notice that $T$ is the period of $|\psi(x,t)|^2$ since this is the largest period of the non-constant interference terms.
+
+
+}
 
 
 \prob{4.3}{
@@ -577,7 +690,36 @@ What is the probability density for the particle to be found at the classically 
 
 }
 
-\sol{}
+\sol{
+
+The Sch\"{o}dinger equation reads
+\begin{align}
+    \dv[2]{\psi}{x} - \Big[ v(x) - k^2 \Big] \psi = E \psi 
+,\end{align}
+where $k^2 = 2 m E / \hbar^2$ and $v(x) = 2 m V_0 / \hbar^2 \Theta(x)$.
+In the region $x < 0$, this reduces to a free-particle, while in the region $x > 0$, we have a particle in a classically forbidden region:
+\begin{align}
+    \psi(x) = \begin{cases}
+        A e^{ikx} + B e^{-ikx} & x < 0 \\
+        C e^{-\kappa x} & x > 0
+    ,\end{cases}
+\end{align}
+where $\kappa^2 = v_0 - k^2$.
+We can determine two of these constants via the initial conditions
+\begin{align}
+    \psi(0^{-}) = \psi(0^{+}) \Rightarrow A + B = C \\
+    \psi'(0^{-}) = \psi'(0^{+}) \Rightarrow ik ( A - B ) = -\kappa C
+.\end{align}
+Solving this system, we have
+\begin{align}
+    \eqbox{ \frac{B}{A} = -\frac{\kappa + ik}{\kappa - ik}, \quad \frac{C}{A} = -\frac{2ik}{\kappa - i k} }
+.\end{align}
+The probability density for the particle to be found at $x_0 > 0$ relative to that at $x = 0$ is
+\begin{align}
+    \eqbox{ \Bigg| \frac{\psi(x_0)}{\psi(0)} \Bigg|^2 = \Bigg| \frac{C e^{- \kappa x_0}}{C} \Bigg|^2 = e^{-2 \kappa x_0} }
+\end{align}
+
+}
 
 
 \prob{4.4}{
@@ -593,4 +735,19 @@ Calculate the probabilities to measure the spin +1/2 separately along each of th
 
 }
 
-\sol{}
+\sol{
+
+The probabilities are as follows:
+\begin{align}
+\eqbox{
+\begin{aligned}
+    P(S_z = \hbar / 2) &= |\ip{+}{\chi}|^2 = |\alpha|^2 = \cos^2{\theta} \\
+    P(S_x = \hbar/2) &= |\ip{+_x}{\chi}|^2 = \frac{1}{2} | \alpha + \beta |^2 = \frac{1}{2} \Big( |\alpha|^2 + |\beta|^2 + \alpha^{*} \beta + \alpha \beta^{*} \Big) \nonumber \\
+                     &= \frac{1}{2} \Big[ 1 + 2 \Re(\alpha^{*} \beta) \Big] = \frac{1}{2} \Big[ 1 + \sin(2 \theta) \cos(\varphi_1 - \varphi_2) \Big] \\
+    P(S_y = \hbar/2) &= |\ip{+_y}{\chi}|^2 = \frac{1}{2} |\alpha + i \beta|^2 = \frac{1}{2} \Big[ 1 - 2 \Im(\alpha^{*} \beta) \Big] \nonumber \\
+                     &= \frac{1}{2} \Big[ 1 + \sin(2 \theta) \sin(\varphi_1 - \varphi_2) \Big]
+\end{aligned}
+}
+\end{align}
+
+}
