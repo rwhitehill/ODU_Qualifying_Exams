@@ -360,7 +360,33 @@ For the waves that are propagating down the wave-guide, what are the phase veloc
 
 }
 
-\sol{}
+\sol{
+
+Recall that the relevant equation for wave-guides, regardless of the mode, is 
+\begin{align}
+    (\grad_T^2 + \gamma^2) \psi = 0
+,\end{align}
+where $\psi = E_z,B_z$ and $\gamma = \mu \epsilon \omega^2 - k^2$.
+The allowed values of $\gamma$ denoted by $\gamma_n$ are determined by boundary conditions (i.e. the geometry of the wave-guide).
+We can define the cutoff frequency for the $n^{\rm th}$ mode via
+\begin{align}
+    \gamma_n^2 = \mu \epsilon \omega_n^2
+,\end{align}
+which allows us to express
+\begin{align}
+    k = \sqrt{\mu \epsilon} \sqrt{\omega^2 - \omega_n^2} = \frac{1}{c} \sqrt{\omega^2 - \omega_{n}^2}
+.\end{align}
+The phase velocity is defined by
+\begin{align}
+    \eqbox{ v_p = \frac{\omega}{k} = \Big( \frac{k}{\omega} \Big)^{-1} = \frac{c}{\sqrt{1 - (\omega_n / \omega)^2}} }
+,\end{align}
+and the group velocity is
+\begin{align}
+    \eqbox{ v_g = \dv{\omega}{k} = \Big( \dv{k}{\omega} \Big)^{-1} = c \sqrt{1 - (\omega_n / \omega)^2} }
+.\end{align}
+Note that these are phase and group velocities for the $n^{\rm th}$ mode.
+
+}
 
 
 \prob{2.4}{
