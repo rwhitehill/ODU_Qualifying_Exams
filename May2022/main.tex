@@ -619,7 +619,21 @@ The conditions on the components perpendicular to the interface are trivially sa
 .\end{align}
 Solving, we find
 \begin{align}
-    \frac{E_{0,\rm re}}{E_{0,\rm in}} = \frac{n-1}{2}, \quad \frac{E_{0,\rm tr}}{E_{0,\rm in}} = \frac{n+1}{2}
+    \eqbox{ \frac{E_{0,\rm re}}{E_{0,\rm in}} = \frac{n-1}{2}, \quad \frac{E_{0,\rm tr}}{E_{0,\rm in}} = \frac{n+1}{2} }
+.\end{align}
+
+
+(c) The Poynting vector for each wave
+\begin{align}
+\begin{aligned} 
+    \vb*{S}_{0,\rm in} = \frac{c}{4 \pi} |E_{0,\rm in}|^2 \vu*{z} \\
+    \vb*{S}_{0,\rm re} = -\frac{c}{4 \pi} |E_{0,\rm re}|^2 \vu*{z} \\
+    \vb*{S}_{0,\rm tr} = \frac{c}{4 \pi}  n^2 |E_{0,\rm tr}|^2 \vu*{z}
+\end{aligned}
+.\end{align}
+The sum of the amplitudes of these vectors (dropping the factors of $c/4\pi$ for brevity) is 
+\begin{align}
+    \eqbox{ |E_{0,\rm in}|^2 + |E_{0,\rm re}|^2 = |E_{0,\rm in}|^2 \Big( 1 + \frac{n - 1}{2} \Big) = |E_{0,\rm in}|^2 \frac{n + 1}{2} = |E_{0,\rm tr}|^2 }
 .\end{align}
 
 
@@ -641,7 +655,58 @@ Consider only the s-state with zero orbital momentum and obtain:
 
 }
 
-\sol{}
+\sol{
+
+Schr\"{o}dinger's equation in spherical coordinates takes the form
+\begin{align}
+    -\frac{\hbar^2}{2 m r^2} \pdv{r} r^2 \pdv{\psi}{r} + \Bigg[ \frac{\vb*{L}^2}{2 m r^2} + V(r) \Bigg] \psi = E \psi
+.\end{align}
+Writing $\psi(\vb*{r}) = R(r) Y_{lm}(\Omega)$, the Schr\"{o}dinger equation reduces to
+\begin{align}
+    \frac{1}{r^2} \dv{r} r^2 \dv{R}{r} - \Bigg[ \frac{l(l + 1)}{r^2} + v(r) \Bigg] R = -\epsilon R
+,\end{align}
+where $v(r) = 2 m V(r) / \hbar^2$ and $\epsilon = 2 m E / \hbar^2$.
+Let us write $R(r) = u(r) / r$.
+The reduced radial equation is then
+\begin{align}
+    u_{El}''(r) + \Bigg[ \epsilon - \frac{l(l+1)}{r^2} - v(r) \Bigg] u_{El}(r) = 0
+.\end{align}
+The s-wave equation in the $\delta$-function potential reads
+\begin{align}
+    u_{E0}''(r) + \Big[ \epsilon + v \delta(r - R) \Big] u_{E 0}(r) = 0
+.\end{align}
+Separating into two regions, we have
+\begin{align}
+    u(r) = \begin{cases}
+        A \cosh(\kappa x) + B \sinh(\kappa x) & x < R \\
+        C e^{-\kappa x} & x > R
+    ,\end{cases}
+\end{align}
+where $\kappa = \sqrt{|\epsilon|}$.
+Since we consider a bound state $\epsilon < 0$.
+We have three boundary conditions:
+\begin{align}
+    &(1): ~ u(r \rightarrow 0) \rightarrow 0 \Rightarrow A = 0 \\
+    &(2): ~ u(R^{-}) = u(R^{+}) \Rightarrow B \sinh(\kappa R) = C e^{-\kappa R} \\
+    &(3): ~ u'(R^{+}) - u'(R^{-}) = -v u(R) \Rightarrow -\kappa \Big[ C e^{-\kappa R} + B \cosh(\kappa R) \Big] = -v C e^{-\kappa R}
+.\end{align}
+The first condition is because our system behaves as if the potential is infinite in the region $r < 0$.
+From these equations, the condition on the energy of the bound state takes the form of the following transcendental equation:
+\begin{align}
+    \eqbox{ \frac{\sinh(\kappa R)}{\sinh(\kappa R) + \cosh(\kappa R)} = \frac{1}{2} \Big( 1 - e^{-2 \kappa R} \Big) = \frac{\kappa}{v} }
+.\end{align}
+
+
+(b) There is always a solution at $\kappa = 0$, which implies $E = 0$ but violates our original assumptions which we used to construct our wave function.
+Thus, we discard it and look for solutions with $\kappa > 0$.
+Notice, however, that the left-hand-side is a constant minus a decreasing exponential, while the right-hand side is a linear function with positive slope.
+Both are monotonically increasing functions, but the left-hand-side has a monotonically decreasing derivative while the right-hand-side has a constant slope of $1/v$.
+Thus, there will not be a second solution if
+\begin{align}
+    \eqbox{ \dv{\kappa} \frac{1}{2} \Big( 1 - e^{-2 \kappa R} \Big) \Big|_{\kappa = 0} = R < \frac{1}{v} = R_c }
+.\end{align}
+
+}
 
 \prob{4.1}{
 
@@ -662,7 +727,29 @@ wherer $B_0$ and $\omega$ are constants.
 
 }
 
-\sol{}
+\sol{
+
+(a) The Hamiltonian for this system is
+\begin{align}
+    \eqbox{ H = - \vb*{\mu} \cdot \vb*{B} = - \frac{g_e e}{2 m c} B_0 \cos(\omega t) S_z }
+.\end{align}
+
+(b) Since the Hamiltonian commutes with itself at different times, the time evolution operator
+\begin{align}
+    U(t) = e^{-\frac{i}{\hbar} \int_{0}^{t} H(t) \dd{t}} = e^{i \lambda(t) \sigma_z}
+,\end{align}
+where $\lambda(t) = (\omega_0 / \omega) \sin(\omega t)$ and $\omega_0 = g_e e B_0 / (4 m c)$.
+The state at an arbitrary time $t$ is then
+\begin{align}
+    \eqbox{ \ket{\psi(t)} = e^{i \lambda(t) \sigma_{z}} \ket{+} = e^{i \lambda(t)} \ket{+} }
+.\end{align}
+
+(c) From the above work, we can see that the probability of obtaining $-\hbar / 2$ upon measurement of $S_x$ is just
+\begin{align}
+    \eqbox{ P(S_x = \hbar/2) = |\ip{+_x}{+}|^2 = \Big| \frac{1}{\sqrt{2}} e^{i \lambda(t)} \Big|^2 = \frac{1}{2} }
+.\end{align}
+
+}
 
 
 \prob{4.2}{
@@ -681,7 +768,29 @@ where $\alpha$ is an arbitrary complex number and $\ket{n}$ is the eigenstate of
 
 }
 
-\sol{}
+\sol{
+
+(a) We can prove that the coherent state is normalized as follows:
+\begin{align}
+    \eqbox{ \ip{\alpha}{\alpha} = e^{-|\alpha|^2} \sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{\alpha^{* \, n} \alpha^{m}}{\sqrt{n! \, m!}} \ip{n}{m} = e^{-|\alpha|^2} \sum_{n=0}^{\infty} \frac{(|\alpha|^2)^{n}}{n!} = 1 }
+.\end{align}
+Next, we prove the form of $\ket{\alpha}$ in terms of the raising operator:
+\begin{align}
+    \eqbox{ \ket{\alpha} = e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \alpha^{n} (\alpha a^{\dagger})^{n} \ket{0} = e^{-|\alpha|^2/2} e^{\alpha a^{\dagger}} \ket{0} }
+,\end{align}
+where we have used that $a^{\dagger} \ket{n} = \sqrt{n+1} \ket{n+1}$ and $\ket{n} = (a^{\dagger})^{n} \ket{0} / \sqrt{n!}$.
+
+(b) Observe that
+\begin{align}
+\eqbox{
+\begin{aligned} 
+    a \ket{\alpha} &= e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^{n}}{\sqrt{n!}} a \ket{n} = e^{-|\alpha|^2/2} \sum_{n=1}^{\infty} \frac{\alpha^{n}}{\sqrt{(n-1)!}} \ket{n-1} \nonumber \\
+                   &= e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^{n+1}}{\sqrt{n!}} \ket{n} = \alpha \ket{n}
+.\end{aligned}
+}
+\end{align}
+
+}
 
 
 \prob{4.3}{
@@ -712,14 +821,43 @@ The eigenenergies and eigenstates of the harmonic oscillator are well known:
 
 }
 
-\sol{}
+\sol{
+
+(a) The first order perturbative correction to the energies
+\begin{align}
+    E_{n}^{(1)} = -q E \mel{n}{x}{n} = 0
+,\end{align}
+where we have used that
+\begin{align}
+    x = \sqrt{\frac{\hbar}{2 m \omega}} ( a^{\dagger} + a ) \Rightarrow \mel{n}{x}{m} = \sqrt{\frac{\hbar}{2 m \omega}} \Big( \sqrt{m + 1} \delta_{n,m+1} + \sqrt{m} \delta_{n,m-1} \Big)
+.\end{align}
+Next, we consider the second order correction to the energies:
+\begin{align}
+    E_{n}^{(2)} &= (q E)^2 \sum_{m \ne n} \frac{|\mel{n}{x}{m}|^2}{\epsilon_{n} - \epsilon_{m}} = \frac{(q E)^2}{\hbar \omega} \frac{\hbar}{2 m \omega} \sum_{m \ne n} \frac{|\sqrt{m+1} \delta_{n,m+1} + \sqrt{m} \delta_{n,m-1}|^2}{n - m} \nonumber \\
+                &= \frac{(q E)^2}{2 m \omega^2} \Bigg[ n - (n + 1) \Bigg] = \eqbox{ - \frac{(q E)^2}{2 m \omega^2} }
+.\end{align}
+
+
+(b) Observe that
+\begin{align}
+    H = \frac{p^2}{2m} + \frac{m \omega^2}{2} x^2 - q E x = \frac{p^2}{2m} + \frac{m \omega^2}{2} \Bigg[ x - \Big( \frac{q E}{ m \omega^2} \Big)^2 \Bigg] - \frac{(q E)^2}{2 m \omega^2}
+.\end{align}
+Thus, the exact energies of this system are
+\begin{align}
+    \eqbox{ E_n = \hbar \omega ( n + 1/2 ) - \frac{(q E)^2}{2 m \omega^2} }
+.\end{align}
+
+(c) We can see that the second order correction calculated in part (a) matches the second term of the exact energies.
+Thus, all the higher order corrections must vanish.
+
+}
 
 
 \prob{4.4}{
 
 Two nonidentical spin-1/2 particles interact via the Hamiltonian
 \begin{align*}
-    \hat{H} = A( \sigma_z^{(1)} + \sigma_z^{(2)} ) + B \vb*{\sigma}^{1} \cdot \vb*{\sigma}^{(2)}
+    \hat{H} = A( \sigma_z^{(1)} + \sigma_z^{(2)} ) + B \vb*{\sigma}^{(1)} \cdot \vb*{\sigma}^{(2)}
 ,\end{align*}
 where $\sigma_x$, $\sigma_y$, and $\sigma_z$ are the Pauli $\sigma$-matrices and $\vb*{\sigma} = (\sigma_x,\sigma_y,\sigma_z)$.
 The ``(1)'' and ``(2)'' superscripts label particles 1 and 2 respectively.
@@ -731,4 +869,22 @@ Find the energy eigenvalues.
 
 }
 
-\sol{}
+\sol{
+
+We can rewrite the Hamiltonian as
+\begin{align}
+    H = A \Big( \sigma_z^{(1)} + \sigma_z^{(2)} \Big) + B \Big[ \frac{1}{2} \Big( \sigma_{+}^{(1)} \sigma_{-}^{(2)} + \sigma_{-}^{(1)} \sigma_{+}^{(2)} \Big) + \sigma_{z}^{(1)} \sigma_{z}^{(2)} \Big]
+,\end{align}
+where $\sigma_{\pm}$ represents the raising and lowering operators.
+Observe that the eigenstates are just the tensor product states of the spin states of particles 1 and 2:
+\begin{align}
+    \eqbox{ H \ket{++} = (2 A + B) \ket{++}, \quad H \ket{\pm \mp} = -B \ket{\pm \mp}, \quad H \ket{--} = (-2A + B) \ket{--} }
+.\end{align}
+Alternatively, note that the composite angular momentum states are also eigenstates of the Hamiltonian.
+The $\ket{1, \pm 1}$ states are already enumerated, so all that remains are the following
+\begin{align}
+    H \ket{1 0} = -B \ket{1 0}, \quad H \ket{0 0} = -B \ket{0 0}
+.\end{align}
+
+
+}
