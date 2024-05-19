@@ -425,6 +425,28 @@ Additionally, the subscripts $\gamma$ and $e$ refer to the photon and electron, 
     \eqbox{ \epsilon_{\gamma}' = \frac{\epsilon_{\gamma} m_{e}}{m_{e} + \epsilon_{\gamma} ( 1 - \cos{\theta_0} )} }
 .\end{gather}
 
+
+(b) We can perform a Lorentz transformation on this expression to obtain the lab frame final state photon energy:
+\begin{align}
+    \eqbox{ E_{\gamma}' = \gamma ( \epsilon_{\gamma}' + \vb*{\beta} \cdot \vb*{p}_{\gamma}' ) = \gamma ( 1 - \beta \cos{\theta_0} ) \epsilon_{\gamma}' = \frac{\gamma ( 1 - \beta \cos{\theta_0} ) m_{e} \epsilon_{\gamma}}{m_{e} + \epsilon_{\gamma} ( 1 - \cos{\theta_0} )} }
+.\end{align}
+
+
+(c) Now, we can relate the rest frame initial photon energy to the lab frame energy via another Lorentz transformation:
+\begin{align}
+    \epsilon_{\gamma} = \gamma ( E_{\gamma} - \vb*{\beta} \cdot \vb*{P}_{\gamma} ) = \gamma (1 + \beta) E_{\gamma}
+.\end{align}
+We can put this into the expression obtained in part (b) to arrive at
+\begin{align}
+    \eqbox{ E_{\gamma}' = \gamma^2 (1 + \beta) E_{\gamma} m_{e} \frac{1 - \beta \cos{\theta_0}}{m_{e} + \gamma (1 + \beta) E_{\gamma} (1 - \cos{\theta_0})} = \gamma m_e \frac{\lambda ( 1 - \beta \cos{\theta_0} )}{1 + \lambda ( 1 - \cos{\theta_0} )} }
+.\end{align}
+
+
+(d) Finally, we can relate the scattering angle of the photon in the lab and electron rest frames as follows:
+\begin{align}
+    \eqbox{ \cos{\theta_0} = \frac{p_{\gamma,x}'}{|\vb*{p}_{\gamma}'|} = \frac{\gamma ( P_{\gamma,x}' + \beta E_{\gamma}' )}{\epsilon_{\gamma}'} = \gamma ( \cos{\theta} + \beta ) }
+.\end{align}
+
 }
 
 
@@ -448,7 +470,26 @@ The plates are connected to a generator which provides an oscillating emf $V(t) 
 
 }
 
-\sol{}
+\sol{
+
+(a) The magnetic field between the plates can be determined via the Ampere-Maxwell equation
+\begin{align}
+    \oint \vb*{B} \cdot \dd{\vb*{l}} = \mu_0 I + \frac{1}{c} \dv{t} \int \vb*{E} \cdot \dd{\vb*{a}}
+.\end{align}
+If we set our loop as a circle of radius $r$, we find
+\begin{align}
+    \eqbox{ \vb*{B} = \vu*{\phi} \frac{1}{2 \pi c r} \pdv{t} E ( \pi r^2 ) = \frac{r}{2c} \pdv{E}{t} \vu*{\phi} = \frac{r}{2cd} \pdv{V}{t} \vu*{\phi} = \frac{V_0 \omega r}{2 c d} \cos{\omega t} \vu*{\phi} }
+.\end{align}
+
+
+(b) The Poynting vector 
+\begin{align}
+    \eqbox{ \vb*{S} = \frac{1}{\mu_0} \vb*{E} \cross \vb*{B} = -\frac{V B_{\phi}}{\mu_0 d} \vu*{r} = -\frac{V_0^2 \omega r}{4 c \mu_0 d} |\sin(2 \omega t)| \vu*{r} }
+.\end{align}
+In our work of part (a), I constructed the direction of the surface normal to be in the same direction as the electric field, and the direction of the magnetic field is given by the right hand rule.
+For both cases, the Poynting vector points radially inward.
+
+}
 
 
 \prob{3.2}{
@@ -467,7 +508,27 @@ A point charge $q$ is placed between two perpendicular semi-infinite metallic pl
 
 }
 
-\sol{}
+\sol{
+
+(a) Observe that we can place three image charges as follows: (1) $-q$ at $(-x_0,y_0)$, (2) $-q$ at $(x_0,-y_0)$, and (3) $q$ at $(-x_0,-y_0)$.
+The resulting electric potential
+\begin{align}
+    \eqbox{
+\begin{aligned} 
+    \varphi(\vb*{r};\vb*{r}_{0}) &= \frac{q}{4 \pi \epsilon_0} \Bigg\{ \frac{1}{\sqrt{(x - x_0)^2 + (y - y_0)^2}} - \frac{1}{\sqrt{(x + x_0)^2 + (y - y_0)^2}} \\
+                                 &- \frac{1}{\sqrt{(x - x_0)^2 + (y + y_0)^2}} + \frac{1}{\sqrt{(x + x_0)^2 + (y + y_0)^2}} \Bigg\} 
+\end{aligned}
+}
+.\end{align}
+
+
+(b) The force acting on the charge is given by
+\begin{align}
+    \vb*{F} &= \frac{q^2}{4 \pi \epsilon_0} \Bigg\{ -\frac{\vu*{x}}{(2 x_0)^2} - \frac{\vu*{y}}{(2 y_0)^2} + \frac{(2 x_0 \vu*{x} + 2 y_0 \vu*{y})}{[ (2 x_0)^2 + (2 y_0)^2 ]^{3/2}} \Bigg\} \nonumber \\
+            &= \eqbox{ \frac{q^2}{16 \pi \epsilon_0} \Bigg\{ \Bigg[ \frac{x_0}{(x_0^2 + y_0^2)^{3/2}} - \frac{1}{x_0^2} \Bigg] \vu*{x} + \Bigg[ \frac{y_0}{(x_0^2 + y_0^2)^{3/2}} - \frac{1}{y_0^2} \Bigg] \vu*{y} \Bigg\} }
+.\end{align}
+
+}
 
 
 \prob{3.3}{
@@ -485,6 +546,45 @@ Solve for the electric potential $V(r,\phi)$ anywhere between the 2 plates, usin
     \Delta = \pdv[2]{r} + \frac{1}{r} \pdv{r} + \frac{1}{r^2} \pdv[2]{\phi} + \pdv[2]{z}
 \end{align*}
 Pick the simplest possible solution for the Laplace equation (no Bessel functions needed!) and show it fulfills all boundary conditions.
+
+}
+
+\sol{
+
+The relevant equation is Laplace's equation, which in cylindrical coordinates takes the form
+\begin{align}
+    \pdv[2]{\Phi}{r} + \frac{1}{r} \pdv{\Phi}{r} + \frac{1}{r^2} \pdv[2]{\Phi}{\phi} + \frac[2]{\Phi}{z} = 0
+.\end{align}
+Notice that the setup is symmetric along $z$, implying that our potential cannot depend on $z$:
+\begin{align}
+    \pdv[2]{\Phi}{r} + \frac{1}{r} \pdv{\Phi}{r} + \frac{1}{r^2} \pdv[2]{\Phi}{\phi} = 0
+.\end{align}
+We can introduce a separable ansatz for our potential of the form $\Phi(r,\phi) = R(r) T(\phi)$, which yields
+\begin{align}
+    \frac{r^2}{R} \dv[2]{R}{r} + \frac{r}{R} \dv{R}{r} + \frac{1}{T} \dv[2]{T}{\phi} = 0
+.\end{align}
+Since our potential goes from $0$ to $V_0$ along the $\phi$ direction, we set
+\begin{align}
+    \frac{1}{T} \dv[2]{T}{\phi} = k^2 \Rightarrow T(\phi) = \begin{cases}
+        A + B \phi & k = 0 \\
+        A \cosh(k \phi) + B \sinh(k \phi) & k \ne 0
+    .\end{cases}
+\end{align}
+Notice that $A = 0$ for all $k$ so that the boundary condition at $\phi$ = 0 is satisfied
+Using this, we obtain the radial equation
+\begin{align}
+    r^2 \dv[2]{R}{r} + r \dv{R}{r} + k^2 R = r \dv{r} r \dv{R}{r} + k^2 R = 0
+.\end{align}
+If we insert a power series $R = \sum_{n} a_{n} r^{n}$, we find $n = \pm k$.
+If $k = 0$, the second solution is $ln(r)$.
+The full solution for our potential is then
+\begin{align}
+    \Phi(r,\phi) = (a_0 + b_0 \phi) (A_0 + B_0 \ln(r)) + \sum_{k \ne 0} \sinh(k \phi) ( A_{k} r^{k} + B_{k} r^{-k} )
+.\end{align}
+In order to have our potential be finite at $r = 0,\infty$, we should select
+\begin{align}
+    \eqbox{ \Phi(r,\phi) = V_0 \frac{\phi}{\alpha} }
+.\end{align}
 
 }
 
@@ -508,7 +608,18 @@ Two spin-1/2 particles are in the state
 
 }
 
-\sol{}
+\sol{
+
+(a) If one measures the total spin along the $z$-axis, one may obtain (sans units of $\hbar$) $1$ and $0$ with probabilities $1/4$ and $3/4$, respectively.
+
+
+(b) Let us rewrite the state in terms of composite spin states first:
+\begin{align}
+    \ket{\Psi} = \frac{1}{2} \ket{1 1} + \frac{\sqrt{3}}{2 \sqrt{2}} ( \ket{1 0} + \ket{0 0} )
+.\end{align}
+From this, it is clear that one may obtain $1$ and $0$ for $s$ upon measurement of $\vb*{S}^2$ with probabilities $5/8$ and $3/8$, respectively.
+
+}
 
 
 \prob{4.1}{
@@ -538,7 +649,29 @@ Find the average energy $\overline{E}$.
 
 }
 
-\sol{}
+\sol{
+
+(a) We should first ensure that our state is normalized:
+\begin{align}
+    \int_{0}^{a/2} \dd{x} x^2 + \int_{a/2}^{a} (a - x)^2 = \frac{a^3}{12}
+.\end{align}
+Thus, we should redefine our state as
+\begin{align}
+    \Psi(x) = \sqrt{\frac{12}{a^3}} \begin{cases}
+        x & 0 < x < a/2 \\
+        a - x & a/2 < x < a
+    \end{cases}
+.\end{align}
+expand the state $\Psi(x)$ in the basis of energy eigenstates:
+\begin{align}
+    \Psi(x) = \sum_{n = 1}^{\infty} c_{n} \psi_{n}(x)
+,\end{align}
+where
+\begin{align}
+    c_{n} = \int \dd{x} \psi_{n}^{*}(x) \Psi(x) = \sqrt{\frac{2}{a}} \Bigg\{ \int_{0}^{a/2} \dd{x} x \sin(\frac{n \pi x}{a}) + \int_{a/2}^{a} \dd{x} (a - x) \sin(\frac{n \pi x}{2}) \Bigg\}
+.\end{align}
+
+}
 
 
 \prob{4.2}{
