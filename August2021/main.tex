@@ -342,7 +342,46 @@ Find the potential everywhere in space.
 
 }
 
-\sol{}
+\sol{
+
+We are interested in solving Laplace's equation off the $xy$-plane.
+In Cartesian coordinates, the equation takes the form
+\begin{align}
+    \pdv[2]{\Phi}{x} + \pdv[2]{\Phi}{y} + \pdv[2]{\Phi}{z} = 0
+.\end{align}
+At this point, we can introduce a separable ansatz such that $\Phi(x,y,z) = X(x) Y(y) Z(z)$ such that
+\begin{align}
+    \frac{1}{X} \dv[2]{X}{x} + \frac{1}{Y} \dv[2]{Y}{y} + \frac{1}{Z} \dv[2]{Z}{z} = 0
+.\end{align}
+each of these terms is a function of a separate independent variable and their sum is a constant independent of these variables.
+Thus, each of the terms must be constant, and since the $x$-dependence is oscillatory, we set
+\begin{align}
+    \frac{1}{X} \dv[2]{X}{x} = - q^2 \Rightarrow X = A \cos{qx} + B \sin{qx}
+.\end{align}
+Similarly, we can impose that
+\begin{align}
+    \frac{1}{Y} \dv[2]{Y}{y} = - p^2 \Rightarrow Y = C \cos{py} + D \sin{py}
+.\end{align}
+Putting this back into the separated equation
+\begin{align}
+    \dv[2]{Z}{z} - \underbrace{ (q^2 + p^2) }_{\gamma^2} Z = 0 \Rightarrow Z = E e^{\gamma z} + F e^{-\gamma z}
+.\end{align}
+The full solution is then
+\begin{align}
+    \Phi(x,y,z) = \int \dd{p} \dd{q} e^{-\sqrt{p^2 + q^2} z} [ A(p,q) \cos{qx} + B(p,q) \sin{qx} ] [ C(p,q) \cos{p y} + D(p,q) \sin{p y} ]
+,\end{align}
+where we have discarded the increasing exponential piece of the $z$-dependence so that our potential is finite at large $z$, which is physically imposed since our potential should go to zero far from the plane.
+We now use our initial condition:
+\begin{align}
+    \Phi(x,y,0) = \int \dd{p} \dd{q} [ A(p,q) \cos{qx} + B(p,q) \sin{qx} ] [ C(p,q) \cos{p y} + D(p,q) \sin{p y} ] = V_0 \sin{kx}
+.\end{align}
+From this, we can see that $A(p,q) = 0$, $B(p,q) = \delta(p - k)$, $C(p,q) = D(p,q) = \delta(q)$.
+Hence, the potential reduces to
+\begin{align}
+    \eqbox{ \Phi(x,y,z) = V_0 \sin(kx) e^{- k |z|} }
+.\end{align}
+
+}
 
 
 \prob{2.4}{
@@ -370,7 +409,23 @@ In order to do so, proceed as follows:
 
 }
 
-\sol{}
+\sol{
+
+To avoid notational confusion, we adopt the following conventions. 
+In the rest frame of the electron, energies and momenta are denoted by $\epsilon$, $p$, respectively.
+In the lab frame, energies and momenta are denoted by $E$, $P$, respectively.
+Additionally, the subscripts $\gamma$ and $e$ refer to the photon and electron, and finally unprimed and primed quantities denote those before and after the scattering.
+
+(a) We can utilize conservation of four momentum:
+\begin{gather}
+    p_{\gamma} + p_{e} = p_{\gamma}' + p_{e}' \nonumber \\
+    (p_{\gamma} + p_{e} - p_{\gamma}')^2 = p_{e}'^2 \nonumber \\
+    m_{e}^2 + 2 p_{\gamma} \cdot p_{e} - 2 p_{\gamma} \cdot p_{\gamma}' - 2 p_{e} \cdot p_{\gamma}' = m_{e}^2 \nonumber \\
+    \epsilon_{\gamma} m_{e} = \epsilon_{\gamma} \epsilon_{\gamma}' + \epsilon_{\gamma}' m_{e} \nonumber \\
+    \eqbox{ \epsilon_{\gamma}' = \frac{\epsilon_{\gamma} m_{e}}{m_{e} + \epsilon_{\gamma} ( 1 - \cos{\theta_0} )} }
+.\end{gather}
+
+}
 
 
 \prob{3.1}{
