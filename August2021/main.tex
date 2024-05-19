@@ -26,7 +26,66 @@ A Lagrangian for a system with infinitely many interacting particles of mass $m$
 
 }
 
-\sol{}
+\sol{
+
+(a) This system describes a linear chain of coupled oscillators, where the ``springs'' connecting each mass has the same stiffness $k$.
+
+
+(b) We can take derivatives as follows to find the equation of motion for the $m^{\rm th}$ mass:
+\begin{gather}
+    \dv{t} \pdv{\mathcal{L}}{\dot{x}_{m}} - \pdv{\mathcal{L}}{x_{m}} = 0 \nonumber \\
+    \sum_{n=-\infty}^{\infty} \Bigg[ m \dv{t} \dot{x}_{n} \underbrace{ \pdv{\dot{x}_{n}}{\dot{x}_{m}} }_{\delta_{nm}} + k ( x_{n} - x_{n-1} ) \underbrace{ \pdv{x_{m}} (x_{n} - x_{n-1}) }_{\delta_{nm} - \delta_{n-1,m}} \Bigg] = 0 \nonumber \\
+    m \ddot{x}_{m} + k [ ( x_{m} - x_{m-1} ) - ( x_{m+1} - x_{m} ) ] = 0 \nonumber \\
+    \eqbox{ m \ddot{x}_{n} - k ( x_{n+1} - 2 x_{n} + x_{n-1} ) = 0 }
+.\end{gather}
+
+
+(c) We can insert the ansatz $x_{n} = A_n e^{i \omega t}$, which yields
+\begin{gather}
+    -m \omega^2 A_n - k ( A_{n+1} - 2 A_{n} + A_{n-1} ) = 0 \nonumber \\
+    \Rightarrow 
+    \begin{pmatrix}
+        \ddots & \ddots & \ddots \\
+               & -k & 2k - m \omega^2 & -k \\
+               & & -k & 2k - m \omega^2 & -k \\
+               & & & \ddots & \ddots & \ddots
+    \end{pmatrix}
+    \begin{pmatrix}
+        \vdots \\ A_{n-1} \\ A_{n} \\ A_{n+1} \\ \vdots
+    \end{pmatrix}
+    = 0
+.\end{gather}
+Observe that we can use translation symmetry to solve this problem.
+If we translate our system to the right or left by $a$, where $a$ is the separation distance between the masses, the problem is physically the same.
+We can encode this symmetry in a matrix $S$ ,of which $A$ is an eigenvector:
+\begin{align}
+    SA = \lambda A
+.\end{align}
+Since $S$ moves our particles to the right by $a$, we have $A_{n+1} = \lambda A_{n}$.
+From this, we must impose that $|\lambda| = 1$ such that the displacements are the same, allowing us to write $\lambda = e^{-i c}$, where $c$ is some phase.
+Observe that we can write
+\begin{align}
+    x_{n} = A_{n} e^{i \omega t} = A_0 e^{i(\omega t - cn)}
+,\end{align}
+where we have defined $A_0$ to be real (we have the freedom to scale our eigenvectors as desired).
+
+(d) If we use the solution form provided
+Observe that
+\begin{align}
+    x_{n \pm 1} = A \Bigg[ \cos(\omega t - cn) \cos(c) \pm \sin(c) \sin(\omega t - cn) \Bigg]
+.\end{align}
+Plugging into the equation of motion, we find
+\begin{align}
+    2 k [ 1 - \cos(c) ] - m \omega^2 = 0 \Rightarrow \eqbox{ \cos{c} = 1 - \frac{m \omega^2}{2k} }
+.\end{align}
+
+(e) If $c \ll 1$, then we can write $\cos(c) \approx 1 - c^2 / 2$, which gives
+\begin{align}
+    \eqbox{ c = \omega \sqrt{ \frac{m}{k} } = \frac{\omega}{\omega_0} }
+.\end{align}
+This solution describes wave motion.
+
+}
 
 
 \prob{1.2}{
@@ -50,7 +109,39 @@ The spring has the stiffness $k$ and the length $l$ in undeformed state.
 
 }
 
-\sol{}
+\sol{
+
+The Lagrangian in terms of $x_1$ and $x_2$ reads
+\begin{align}
+    L = \frac{m}{2} ( \dot{x}_{1}^2 + \dot{x}_{2}^2 ) - \frac{k}{2}[ (x_2 - x_1) - l ]^2 + f x_1
+.\end{align}
+We make the change of variables from $(x_1,x_2) \rightarrow (Q,u)$ as follows:
+\begin{align}
+    \begin{cases}
+    Q = \frac{1}{2}( x_1 + x_2 ) \\
+    u = x_2 - x_1
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+    x_1 = Q - \frac{u}{2} \\
+    x_2 = Q + \frac{u}{2}
+    .\end{cases}
+\end{align}
+Rewriting our Lagrangian, we have
+\begin{align}
+    \eqbox{ L = m \dot{Q}^2 + \frac{m \dot{u}^2}{4} - \frac{k}{2} (u - l)^2 + f \Big( Q - \frac{u}{2} \Big) }
+.\end{align}
+
+
+(b) The equations of motion are then
+\begin{gather}
+    2 m \ddot{Q} - f = 0 \Rightarrow \eqbox{ Q(t) = \frac{f}{4 m} t^2 + \frac{l}{2} } \\
+    \frac{m}{2} \ddot{u} + k (u - l) + \frac{f}{2} = 0 \Rightarrow \eqbox{ u(t) = \frac{f}{2k} \cos(\sqrt{\frac{2k}{m}} \, t) + l - \frac{f}{2k} }
+.\end{gather}
+
+(c) The amplitude of the relative position of $x_1$ and $x_2$ is $f/(2k)$, and the frequency of the corresponding oscillation is $\sqrt{2 k / m}$.
+
+}
 
 
 \prob{1.3}{
@@ -69,7 +160,47 @@ A spherical pendulum consists of a particle of mass $m$ in a gravitational field
 
 }
 
-\sol{}
+\sol{
+
+(a) We can parameterize the position of the mass as follows:
+\begin{align}
+    \vb*{r} &= R ( \sin{\theta} \cos{\phi} \vu*{x} + \sin{\theta} \sin{\phi} \vu*{y} - \cos{\theta} \vu*{z} ) \nonumber \\
+    \Rightarrow \dot{\vb*{r}} &= R [ ( \dot{\theta} \cos{\theta} \cos{\phi} - \dot{\phi} \sin{\theta} \sin{\phi} ) \vu*{x} + ( \dot{\theta} \cos{\theta} \sin{\phi} + \dot{\phi} \sin{\theta} \cos{\phi} ) \vu*{y} + \dot{\theta} \sin{\theta} \vu*{z} ] \nonumber \\
+    \Rightarrow \dot{\vb*{r}}^2 &= R^2 \Big( \dot{\theta}^2 + \dot{\phi}^2 \sin^2{\theta} \Big)
+.\end{align}
+Hence,
+\begin{align}
+    L = \frac{m R^2}{2} \Big( \dot{\theta}^2 + \dot{\phi}^2 \sin^2{\theta} \Big) + m g R \cos{\theta}
+.\end{align}
+From this, we can derive the conjugate momenta to $\theta$ and $\phi$, respectively:
+\begin{gather}
+    p_{\theta} = \pdv{L}{\dot{\theta}} = m R^2 \dot{\theta} \Rightarrow \dot{\theta} = \frac{p_{\theta}}{m R^2} \\
+    p_{\phi} = \pdv{L}{\dot{\phi}} = m R^2 \sin^2{\theta} \dot{\phi} \Rightarrow \dot{\phi} = \frac{p_{\phi}}{m R^2 \sin^2{\theta}}
+.\end{gather}
+In terms of the momenta, the Lagrangian reads
+\begin{align}
+    L &= \frac{mR^2}{2} \Big( \frac{p_{\theta}^2}{(m R^2)^2} + \frac{p_{\phi}^2}{(mR^2 \sin^2{\theta})^2} \sin^2{\theta} \Big) + m g R \cos{\theta} \nonumber \\
+      &= \frac{p_{\theta}^2}{2 m R^2} + \frac{p_{\phi}^2}{2 m R^2 \sin^2{\theta}} + m g R \cos{\theta}
+.\end{align}
+The Hamiltonian is then
+\begin{align}
+    \eqbox{ H = p_{\theta} \dot{\theta} + p_{\phi} \dot{\phi} - L = \frac{p_{\theta}^2}{2 m R^2} + \frac{p_{\phi}^2}{2 m R^2 \sin^2{\theta}} - m g R \cos{\theta} }
+.\end{align}
+
+
+(b) The Hamiltonian equations of motion can be obtained in the usual way:
+\begin{gather}
+    \dot{\theta} = \pdv{H}{p_{\theta}} = \frac{p_{\theta}}{m R^2}, \quad \dot{p}_{\theta} = - \pdv{H}{\theta} = \frac{p_{\phi}^2}{2 m R^2 \sin^2{\theta} \tan{\theta}} - m g R \sin{\theta} \\
+    \dot{\phi} = \pdv{H}{p_{\phi}} = \frac{p_{\phi}}{m R^2 \sin^2{\theta}}, \quad \dot{p}_{\phi} = -\pdv{H}{\phi} = 0
+.\end{gather}
+
+
+(c) If the particle undergoes circular motion, then $p_{\theta} = 0$, so
+\begin{align}
+    \theta(t) = \theta_0, \quad p_{\phi} = m R^2 \sin^2{\theta_0} \dot{\phi}
+.\end{align}
+
+}
 
 
 \prob{1.4}{
@@ -86,7 +217,39 @@ A spherical pendulum consists of a particle of mass $m$ in a gravitational field
 
 }
 
-\sol{}
+\sol{
+
+(a) The escape velocity $v_{e}$ is the minimum velocity necessary for a mass $m$ to reach a distance infinitely far from earth with no kinetic energy.
+That is,
+\begin{align}
+    \frac{m v_{e}^2}{2} - \frac{G M m}{R} = 0 \Rightarrow \eqbox{ v_{e} = \sqrt{\frac{2 G M}{R}} = R \sqrt{\frac{8 \pi G \rho}{3}} }
+.\end{align}
+
+
+(b) To compute the velocity at the center of the earth, we need to know the force on the mass at an arbitrary distance from the center.
+This could be obtained by integrating Newton's law of gravitation directly, but we can also be clever and repurpose Gauss' law for gravity:
+\begin{align}
+    \oint \vb*{g} \cdot \dd{\vb*{a}} = -4 \pi G M_{\rm enc} \Rightarrow \vb*{g} = -\frac{4 \pi G}{4 \pi r^2} \frac{4}{3} \pi r^3 \rho \vu*{r} = -\frac{4 \pi G \rho}{3} \vb*{r}
+.\end{align}
+Using Newton's $2^{\rm nd}$ law, we have the equation of motion
+\begin{align}
+    m \ddot{r} = -\frac{4}{3} \pi G m \rho r \Rightarrow r(t) = R \cos(\omega t)
+,\end{align}
+where $\omega = \sqrt{4 \pi G \rho / 3}$.
+At the center of the earth, we have
+\begin{align}
+    R \cos(\omega T) = 0 \Rightarrow \omega T = \frac{\pi}{2} \Rightarrow \eqbox{ |\dot{r}(T)| = R \omega = R \sqrt{\frac{4 \pi G \rho}{3} } = \frac{v_{e}}{\sqrt{2}} }
+.\end{align}
+
+
+(c) Since $\rho(\vb*{r}) = \rho(r)$ by assumption $\vb*{g}$ will always point radially.
+We then have the equation
+\begin{align}
+    \grad \cdot \vb*{g} = \dv{g}{r} = 0 = - 4 \pi G \rho(r)
+.\end{align}
+It is clear from we can only have a uniform gravitational field if $\rho = 0$ for all $r$, that is, we cannot construct a planet such that the force of gravity is constant regardless of how far from the center one is.
+
+}
 
 
 \prob{2.1}{
@@ -98,7 +261,23 @@ Given $F_0$, at what angular frequency $\omega$ the amplitude of the displacemen
 
 }
 
-\sol{}
+\sol{
+
+The equation of motion for this system is
+\begin{align}
+    m \ddot{x} + b \dot{x} + kx = F_0 \cos{\omega t}
+.\end{align}
+Let us solve for the transient motion of the system.
+To simplify the math, we use complex exponentials and insert an ansatz of $x = A e^{i \omega t}$, which yields the algebraic equation
+\begin{align}
+    ( k - m \omega^2 + i \omega b ) A = F_0 \Rightarrow |A| = \frac{F_0}{(k - m \omega^2)^2 + \omega^2 b^2}
+.\end{align}
+This ampitude is maximal when the denominator is minimal:
+\begin{align}
+    \dv{\omega^2} \Big[ (k - m \omega^2)^2 + \omega^2 b^2 \Big] = 2 ( m \omega^2 - k ) + b^2 = 0 \Rightarrow \eqbox{ \omega = \sqrt{ \frac{k}{m} - \frac{b^2}{2m} } = \sqrt{\omega_0^2 - 2 \beta^2} }
+.\end{align}
+
+}
 
 \subsection*{Electricity \& Magnetism}
 \addcontentsline{toc}{subsection}{Electricity \& Magnetism}
@@ -114,7 +293,45 @@ For a fixed total charge $Q$, consider the behaviors of $\Phi(\vb*{r})$ and $\vb
 
 }
 
-\sol{}
+\sol{
+
+The total charge 
+\begin{align}
+    \eqbox{ Q = \int \dd[3]{\vb*{r}} \rho(r) = 4 \pi \int_{R_1}^{R_2} \dd{r} \alpha r = 2 \pi \alpha ( R_2^2 - R_1^2 ) }
+.\end{align}
+The electric field is determined via Gauss' law.
+For $r < R_1$, the electric field is zero since no charge is enclosed.
+For $R_1 < r < R_2$, 
+\begin{align}
+    \eqbox{ \vb*{E} = \frac{1}{4 \pi \epsilon_0} \frac{2 \pi \alpha (r^2 - R_1^2)}{r^2} \vu*{r} = \frac{\alpha}{2 \epsilon_0} \Big( 1 - \frac{R_1^2}{r^2} \Big) \vu*{r} }
+.\end{align}
+lastly, for $r > R_2$, we effectively have a point charge:
+\begin{align}
+    \eqbox{ \vb*{E} = \frac{\alpha}{2 \epsilon_0} \frac{R_2^2 - R_1^2}{r^2} }
+.\end{align}
+From this we can determine the potential as
+\begin{align}
+    \Phi(r) = \int_{r}^{\infty} E(r') \dd{r'}
+.\end{align}
+For $r > R_2$, we have
+\begin{align}
+    \eqbox{ \Phi(r) = \frac{\alpha}{2 \epsilon_0} \frac{R_2^2 - R_1^2}{r} }
+,\end{align}
+whilst for $R_1 < r < R_2$, we have
+\begin{align}
+    \Phi(r) &= \frac{\alpha}{2 \epsilon_0} \Bigg[ \frac{R_2^2}{R_1^2} - 1 + \int_{r}^{R_2} \Big( 1 - \frac{R_1^2}{r'^2} \Big) \dd{r'} \Bigg] \nonumber \\
+            &= \frac{\alpha}{2 \epsilon_0} \Bigg[ \frac{R_2^2}{R_1} - R_1 + (R_2 - r) - R_1^2 \Big( \frac{1}{r} - \frac{1}{R_1} \Big) \Bigg] \nonumber \\
+            &= \eqbox{ \frac{\alpha}{2 \epsilon_0} \Bigg[ \frac{R_2^2}{R_1} - \frac{R_1^2}{r} + R_2 - r \Bigg] }
+.\end{align}
+When $r < R_1$, we have
+\begin{align}
+    \eqbox{ \Phi(r) = \Phi(R_1) = \frac{\alpha}{2 \epsilon_0} \Bigg[ \frac{R_2^2}{R_1} + R_2 - 2 R_1 \Bigg] }
+.\end{align}
+In the limit of an infinitely thin shell, we still have the same results of the electric field inside ($\vb*{E} = 0$) and outside ($\vb*{E} = Q/(4 \pi \epsilon_0 r^2) \vu*{r}$).
+For the potential, outside the shell we have $\Phi = Q/(4 \pi \epsilon_0 R_2)$, and inside $\Phi = Q/(4 \pi \epsilon_0 R_2)$.
+
+
+}
 
 
 \prob{2.3}{
